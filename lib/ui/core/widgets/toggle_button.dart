@@ -35,6 +35,7 @@ class _ToggleButtonState extends State<ToggleButton> {
         curve: Curves.easeIn,
         child: Chip(
           visualDensity: VisualDensity.compact,
+          padding: EdgeInsets.symmetric(horizontal: 3),
           backgroundColor: _isSelected ? AppColors.primary : AppColors.white,
           side: BorderSide(
             color: _isSelected ? Colors.transparent : Colors.grey.shade300,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
+import 'package:hotels_guide/ui/core/widgets/badge_icon_button.dart';
 import 'package:hotels_guide/ui/core/widgets/toggle_button.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/sliding_button.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_bloc.dart';
@@ -128,7 +129,12 @@ class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
           ),
-          ToggleButton(text: 'filtros', selected: true, onTap: (v){}),
+          Row(
+            children: [
+              ToggleButton(text: 'filtros', selected: true, onTap: (v){}),
+              BadgeIconButton(count: 1, icon:  Icons.access_time, text: "text"),
+            ],
+          ),
           Divider(
             height: 0,
           ),
