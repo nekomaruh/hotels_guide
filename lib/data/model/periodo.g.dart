@@ -13,7 +13,9 @@ _$PeriodoImpl _$$PeriodoImplFromJson(Map<String, dynamic> json) =>
       valor: (json['valor'] as num).toDouble(),
       valorTotal: (json['valorTotal'] as num).toDouble(),
       temCortesia: json['temCortesia'] as bool,
-      desconto: Desconto.fromJson(json['desconto'] as Map<String, dynamic>),
+      desconto: json['desconto'] == null
+          ? null
+          : Desconto.fromJson(json['desconto'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$PeriodoImplToJson(_$PeriodoImpl instance) =>

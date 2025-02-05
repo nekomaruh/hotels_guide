@@ -25,7 +25,7 @@ mixin _$Periodo {
   double get valor => throw _privateConstructorUsedError;
   double get valorTotal => throw _privateConstructorUsedError;
   bool get temCortesia => throw _privateConstructorUsedError;
-  Desconto get desconto => throw _privateConstructorUsedError;
+  Desconto? get desconto => throw _privateConstructorUsedError;
 
   /// Serializes this Periodo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,9 +47,9 @@ abstract class $PeriodoCopyWith<$Res> {
       double valor,
       double valorTotal,
       bool temCortesia,
-      Desconto desconto});
+      Desconto? desconto});
 
-  $DescontoCopyWith<$Res> get desconto;
+  $DescontoCopyWith<$Res>? get desconto;
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$PeriodoCopyWithImpl<$Res, $Val extends Periodo>
     Object? valor = null,
     Object? valorTotal = null,
     Object? temCortesia = null,
-    Object? desconto = null,
+    Object? desconto = freezed,
   }) {
     return _then(_value.copyWith(
       tempoFormatado: null == tempoFormatado
@@ -95,10 +95,10 @@ class _$PeriodoCopyWithImpl<$Res, $Val extends Periodo>
           ? _value.temCortesia
           : temCortesia // ignore: cast_nullable_to_non_nullable
               as bool,
-      desconto: null == desconto
+      desconto: freezed == desconto
           ? _value.desconto
           : desconto // ignore: cast_nullable_to_non_nullable
-              as Desconto,
+              as Desconto?,
     ) as $Val);
   }
 
@@ -106,8 +106,12 @@ class _$PeriodoCopyWithImpl<$Res, $Val extends Periodo>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DescontoCopyWith<$Res> get desconto {
-    return $DescontoCopyWith<$Res>(_value.desconto, (value) {
+  $DescontoCopyWith<$Res>? get desconto {
+    if (_value.desconto == null) {
+      return null;
+    }
+
+    return $DescontoCopyWith<$Res>(_value.desconto!, (value) {
       return _then(_value.copyWith(desconto: value) as $Val);
     });
   }
@@ -126,10 +130,10 @@ abstract class _$$PeriodoImplCopyWith<$Res> implements $PeriodoCopyWith<$Res> {
       double valor,
       double valorTotal,
       bool temCortesia,
-      Desconto desconto});
+      Desconto? desconto});
 
   @override
-  $DescontoCopyWith<$Res> get desconto;
+  $DescontoCopyWith<$Res>? get desconto;
 }
 
 /// @nodoc
@@ -150,7 +154,7 @@ class __$$PeriodoImplCopyWithImpl<$Res>
     Object? valor = null,
     Object? valorTotal = null,
     Object? temCortesia = null,
-    Object? desconto = null,
+    Object? desconto = freezed,
   }) {
     return _then(_$PeriodoImpl(
       tempoFormatado: null == tempoFormatado
@@ -173,10 +177,10 @@ class __$$PeriodoImplCopyWithImpl<$Res>
           ? _value.temCortesia
           : temCortesia // ignore: cast_nullable_to_non_nullable
               as bool,
-      desconto: null == desconto
+      desconto: freezed == desconto
           ? _value.desconto
           : desconto // ignore: cast_nullable_to_non_nullable
-              as Desconto,
+              as Desconto?,
     ));
   }
 }
@@ -206,7 +210,7 @@ class _$PeriodoImpl implements _Periodo {
   @override
   final bool temCortesia;
   @override
-  final Desconto desconto;
+  final Desconto? desconto;
 
   @override
   String toString() {
@@ -258,7 +262,7 @@ abstract class _Periodo implements Periodo {
       required final double valor,
       required final double valorTotal,
       required final bool temCortesia,
-      required final Desconto desconto}) = _$PeriodoImpl;
+      required final Desconto? desconto}) = _$PeriodoImpl;
 
   factory _Periodo.fromJson(Map<String, dynamic> json) = _$PeriodoImpl.fromJson;
 
@@ -273,7 +277,7 @@ abstract class _Periodo implements Periodo {
   @override
   bool get temCortesia;
   @override
-  Desconto get desconto;
+  Desconto? get desconto;
 
   /// Create a copy of Periodo
   /// with the given fields replaced by the non-null parameter values.
