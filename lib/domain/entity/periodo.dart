@@ -13,7 +13,7 @@ class Periodo with _$Periodo {
     required double valor,
     required double valorTotal,
     required bool temCortesia,
-    required Desconto desconto,
+    required Desconto? desconto,
   }) = _Periodo;
 
   factory Periodo.fromJson(Map<String, Object?> json) => _$PeriodoFromJson(json);
