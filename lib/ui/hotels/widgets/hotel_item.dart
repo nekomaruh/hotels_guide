@@ -65,7 +65,7 @@ class HotelItem extends StatelessWidget {
         ),
         SizedBox(height: 20),
         SizedBox(
-          height: 600,
+          height: 800,
           child: PageView.builder(
             controller: PageController(viewportFraction: 0.9),
             itemCount: motei.suites.length,

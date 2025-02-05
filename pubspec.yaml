@@ -41,6 +41,7 @@ dependencies:
   equatable: ^2.0.7
   flutter_bloc: ^9.0.0
   flutter_material_design_icons: ^1.1.7447
+  currency_formatter: ^2.2.2
 
 dev_dependencies:
   flutter_test:
