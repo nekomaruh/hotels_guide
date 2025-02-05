@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red).copyWith(
           surface: AppColors.background,
         ),
+        fontFamily: 'Titillium',
         cardTheme: CardTheme(
           shape: RoundedRectangleBorder(
             borderRadius:
