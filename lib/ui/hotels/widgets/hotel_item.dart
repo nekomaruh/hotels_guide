@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hotels_guide/ui/hotels/widgets/suite_item.dart';
 
 import '../../../domain/entity/motei.dart';
+import '../../core/themes/colors.dart';
 
 class HotelItem extends StatelessWidget {
   final Motei motei;
@@ -18,7 +19,13 @@ class HotelItem extends StatelessWidget {
           ),
           title: Text(motei.fantasia),
           subtitle: Text(motei.bairro),
-          trailing: IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+          trailing: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.favorite,
+              color: AppColors.unselected,
+            ),
+          ),
         ),
         Row(
           children: [

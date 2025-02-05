@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotels_guide/config/dependencies.dart';
+import 'package:hotels_guide/ui/core/themes/colors.dart';
 import 'package:hotels_guide/ui/hotels/widgets/hotels_page.dart';
 
 Future<void> main() async {
@@ -17,7 +18,17 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red).copyWith(
+          surface: AppColors.background,
+        ),
+        cardTheme: CardTheme(
+          shape: RoundedRectangleBorder(
+            borderRadius:
+            BorderRadius.circular(5),
+          ),
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          color: Colors.white,
+        ),
         useMaterial3: true,
       ),
       home: const HotelsPage(),
