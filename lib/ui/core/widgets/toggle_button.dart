@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
 
 class ToggleButton extends StatefulWidget {
+  final bool enabled;
   final String text;
   final bool selected;
   final Function(bool value) onTap;
 
   const ToggleButton({
     super.key,
+    required this.enabled,
     required this.text,
     required this.selected,
     required this.onTap,
@@ -29,18 +31,23 @@ class _ToggleButtonState extends State<ToggleButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        _toggleSelection();
-        widget.onTap(_isSelected);
-      },
+      onTap: widget.enabled
+          ? () {
+              _toggleSelection();
+              widget.onTap(_isSelected);
+            }
+          : null,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeIn,
         child: Chip(
           visualDensity: VisualDensity.compact,
           padding: EdgeInsets.symmetric(horizontal: 3),
-          backgroundColor:
-              _isSelected ? AppColors.primaryVariant : AppColors.white,
+          backgroundColor: widget.enabled
+              ? _isSelected
+                  ? AppColors.primaryVariant
+                  : AppColors.white
+              : AppColors.unselected,
           side: BorderSide(
             color: _isSelected ? Colors.transparent : Colors.grey.shade300,
             width: 1,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
 import 'package:hotels_guide/ui/core/widgets/dropdown_placeholder.dart';
+import 'package:hotels_guide/ui/hotels/cubit/carousel_cubit/carousel_cubit.dart';
 import 'package:hotels_guide/ui/hotels/widgets/items/banner_item.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/filter_sticky_header.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/sliding_button.dart';
@@ -21,12 +22,9 @@ class HotelsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (_) => HotelsBloc(sl())..add(FetchHotelsEvent()),
-        ),
-        BlocProvider(
-          create: (_) => SuiteFilterCubit(),
-        ),
+        BlocProvider(create: (_) => HotelsBloc(sl())..add(FetchHotelsEvent())),
+        BlocProvider(create: (_) => SuiteFilterCubit()),
+        BlocProvider(create: (_) => CarouselCubit()),
       ],
       child: HotelsPageBuilder(),
     );
@@ -41,7 +39,7 @@ class HotelsPageBuilder extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100), // Ajusta la altura que necesites
+        preferredSize: Size.fromHeight(100),
         child: AppBar(
           title: SlidingButton(
             value: 1,
@@ -57,7 +55,6 @@ class HotelsPageBuilder extends StatelessWidget {
           ],
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(10),
-            // Ajusta el espacio de debajo del título
             child: Padding(
                 padding: const EdgeInsets.only(bottom: 15),
                 child: DropdownPlaceholder()),
@@ -75,26 +72,7 @@ class HotelsPageBuilder extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: ColoredBox(
-                  color: AppColors.backgroundCard,
-                  child: CarouselSlider(
-                    options: CarouselOptions(
-                      viewportFraction: 1,
-                    ),
-                    items: [
-                      BannerItem(),
-                      BannerItem(),
-                      BannerItem(),
-                      BannerItem(),
-                      BannerItem(),
-                    ].map((i) {
-                      return Padding(
-                        padding: EdgeInsets.all(10),
-                        child: i,
-                      );
-                    }).toList(),
-                  ),
-                ),
+                child: BannerView(),
               ),
               SliverPersistentHeader(
                 pinned: true,
@@ -138,3 +116,55 @@ class HotelsPageBuilder extends StatelessWidget {
     );
   }
 }
+
+class BannerView extends StatelessWidget {
+  const BannerView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: AppColors.backgroundCard,
+      child: BlocBuilder<CarouselCubit, int>(
+        builder: (context, currentIndex) {
+          return Column(
+            children: [
+              CarouselSlider(
+                options: CarouselOptions(
+                  viewportFraction: 1,
+                  autoPlay: true,
+                  onPageChanged: (index, reason) {
+                    context.read<CarouselCubit>().updateIndex(index);
+                  },
+                ),
+                items: List.generate(10, (_) => BannerItem()).map((i) {
+                  return Padding(
+                    padding: EdgeInsets.all(10),
+                    child: i,
+                  );
+                }).toList(),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(10, (index) {
+                  return Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    width: currentIndex == index ? 10 : 5,
+                    height: currentIndex == index ? 10 : 5,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: currentIndex == index
+                          ? Colors.grey
+                          : Colors.grey.shade400,
+                    ),
+                  );
+                }),
+              ),
+              const SizedBox(height: 10),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotels_guide/ui/hotels/cubit/filter_cubit/suite_filter_state.dart';
 

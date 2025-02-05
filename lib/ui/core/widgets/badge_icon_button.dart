@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
 
 class BadgeIconButton extends StatelessWidget {
+  final bool enabled;
   final int count;
   final IconData icon;
   final String text;
 
   const BadgeIconButton({
     super.key,
+    required this.enabled,
     required this.count,
     required this.icon,
     required this.text,
@@ -19,7 +21,7 @@ class BadgeIconButton extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Chip(
-          backgroundColor: AppColors.white,
+          backgroundColor: enabled ? AppColors.white: AppColors.unselected,
           visualDensity: VisualDensity.compact,
           side: BorderSide(
             color: Colors.grey.shade300,
