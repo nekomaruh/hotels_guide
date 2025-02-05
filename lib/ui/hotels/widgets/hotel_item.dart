@@ -22,9 +22,9 @@ class HotelItem extends StatelessWidget {
           rating: motei.media.toString(),
           ratingCount: motei.qtdAvaliacoes.toString(),
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 15),
         SizedBox(
-          height: 650,
+          height: 750,
           child: PageView.builder(
             controller: PageController(viewportFraction: 0.9),
             itemCount: motei.suites.length,

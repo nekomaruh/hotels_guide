@@ -20,13 +20,14 @@ class ItemCard extends StatelessWidget {
       width: width,
       height: height,
       padding: EdgeInsets.all(8),
+      margin: EdgeInsets.all(1),
       decoration: BoxDecoration(
         color: AppColors.container,
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.shade200,
-            blurRadius: 5,
+            blurRadius: 2,
             spreadRadius: 0,
             offset: Offset(0, 0),
           ),

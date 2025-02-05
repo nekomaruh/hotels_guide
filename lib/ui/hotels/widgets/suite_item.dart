@@ -26,7 +26,8 @@ class SuiteItem extends StatelessWidget {
               SizedBox(height: 10),
               Text(
                 suite.nome,
-                style: Theme.of(context).textTheme.titleMedium,
+                style: Theme.of(context).textTheme.titleLarge,
+                textAlign: TextAlign.center,
               ),
               if (suite.exibirQtdDisponiveis) ...[
                 SizedBox(height: 5),
@@ -37,10 +38,10 @@ class SuiteItem extends StatelessWidget {
                     Icon(MdiIcons.alarmLight, color: Colors.red, size: 15),
                     Text(
                       "só mais ${suite.qtd} pelo app",
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelSmall
-                          ?.copyWith(color: Colors.red),
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 )
@@ -49,9 +50,8 @@ class SuiteItem extends StatelessWidget {
             ],
           ),
         ),
-        //SizedBox(height: 5),
         ItemCard(
-          height: 70,
+          height: 80,
           child: Row(
             children: [
               SizedBox(width: 5),
@@ -63,27 +63,38 @@ class SuiteItem extends StatelessWidget {
                       ? 4
                       : suite.categoriaItens.length,
                   itemBuilder: (_, i) {
-                    return Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: AppColors.background,
-                        ),
-                        child: Image.network(
-                          suite.categoriaItens[i].icone,
-                          width: 40,
-                          height: 40,
-                        ),
+                    return Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: AppColors.background,
+                      ),
+                      child: Image.network(
+                        suite.categoriaItens[i].icone,
+                        width: 45,
+                        height: 45,
                       ),
                     );
                   },
                 ),
               ),
               SizedBox(width: 10),
-              Text('ver\ntodos', textAlign: TextAlign.right),
-              SizedBox(width: 5),
-              Icon(Icons.keyboard_arrow_down_rounded, size: 15),
+              Text(
+                'ver\ntodos',
+                textAlign: TextAlign.right,
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                  color: Colors.grey.shade600
+                ),
+              ),
+              SizedBox(width: 8),
+              Icon(
+                Icons.keyboard_arrow_down_rounded,
+                size: 15,
+                color: Colors.grey.shade600,
+              ),
               SizedBox(width: 5),
             ],
           ),
