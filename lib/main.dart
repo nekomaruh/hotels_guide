@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hotels_guide/config/dependencies.dart';
-import 'package:hotels_guide/data/services/api/dio_http_client.dart';
-import 'package:hotels_guide/domain/entity/event.dart';
 
 Future<void> main() async {
   await setupDependencies();
