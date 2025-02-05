@@ -65,13 +65,13 @@ class HotelItem extends StatelessWidget {
         ),
         SizedBox(height: 20),
         SizedBox(
-          height: 400,
+          height: 600,
           child: PageView.builder(
             controller: PageController(viewportFraction: 0.9),
             itemCount: motei.suites.length,
             itemBuilder: (context, i) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: SuiteItem(suite: motei.suites[i]),
               );
             },
