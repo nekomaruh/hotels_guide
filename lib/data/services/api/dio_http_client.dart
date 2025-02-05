@@ -7,8 +7,7 @@ import 'http_client.dart';
 class DioHttpClient implements HttpClient {
   final Dio _dio;
 
-  DioHttpClient(String baseUrl)
-      : _dio = Dio(BaseOptions(baseUrl: baseUrl)) {
+  DioHttpClient(this._dio) {
     _dio.interceptors.add(LoggingInterceptor());
     _dio.interceptors.add(ErrorInterceptor());
   }
