@@ -22,7 +22,7 @@ class ItemCard extends StatelessWidget {
       padding: EdgeInsets.all(8),
       margin: EdgeInsets.all(1),
       decoration: BoxDecoration(
-        color: AppColors.container,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(

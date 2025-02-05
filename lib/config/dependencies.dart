@@ -5,7 +5,6 @@ import 'package:hotels_guide/data/repositories/hotels_repository_impl.dart';
 import 'package:hotels_guide/data/services/api/dio_http_client.dart';
 import 'package:hotels_guide/data/services/api/dio_http_client_impl.dart';
 import 'package:hotels_guide/domain/use_case/get_hotels_use_case.dart';
-import 'package:hotels_guide/utils/use_case.dart';
 
 import '../data/services/api/ssl/ssl_manager.dart';
 import 'endpoints.dart';
