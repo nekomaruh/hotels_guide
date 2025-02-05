@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hotels_guide/ui/core/themes/colors.dart';
+import 'package:hotels_guide/ui/core/widgets/rating_chip.dart';
+import 'package:hotels_guide/ui/core/widgets/rating_counter.dart';
 import 'package:hotels_guide/ui/hotels/widgets/suite_item.dart';
 
 import '../../../domain/entity/motei.dart';
-import '../../core/themes/colors.dart';
 
 class HotelItem extends StatelessWidget {
   final Motei motei;
@@ -13,59 +15,16 @@ class HotelItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(motei.logo),
-          ),
-          title: Text(motei.fantasia),
-          subtitle: Text(motei.bairro),
-          trailing: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.favorite,
-              color: AppColors.unselected,
-            ),
-          ),
-        ),
-        Row(
-          children: [
-            SizedBox(width: 70),
-            Container(
-              padding: EdgeInsets.only(left: 2, right: 4),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.amber,
-                  width: 1.0,
-                ),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Row(
-                spacing: 1,
-                children: [
-                  Icon(Icons.star, color: Colors.amber, size: 12),
-                  Text(
-                    motei.media.toString(),
-                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          fontSize: 10,
-                        ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(width: 5),
-            Text(
-              '${motei.qtdAvaliacoes} avaliacoes',
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    fontSize: 10,
-                  ),
-            ),
-            SizedBox(width: 3),
-            Icon(Icons.keyboard_arrow_down_rounded, size: 12)
-          ],
+        _Header(
+          logo: motei.logo,
+          name: motei.fantasia,
+          location: motei.bairro,
+          rating: motei.media.toString(),
+          ratingCount: motei.qtdAvaliacoes.toString(),
         ),
         SizedBox(height: 20),
         SizedBox(
-          height: 800,
+          height: 650,
           child: PageView.builder(
             controller: PageController(viewportFraction: 0.9),
             itemCount: motei.suites.length,
@@ -78,6 +37,60 @@ class HotelItem extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  final String logo;
+  final String name;
+  final String location;
+  final String rating;
+  final String ratingCount;
+
+  const _Header({
+    required this.logo,
+    required this.name,
+    required this.location,
+    required this.rating,
+    required this.ratingCount,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CircleAvatar(
+            backgroundImage: NetworkImage(logo),
+          ),
+          SizedBox(width: 20),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  name,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                Text(location),
+                SizedBox(height: 8),
+                Row(
+                  children: [
+                    RatingChip(stars: rating),
+                    SizedBox(width: 10),
+                    RatingCounter(count: ratingCount)
+                  ],
+                )
+              ],
+            ),
+          ),
+          SizedBox(width: 20),
+          Icon(Icons.favorite, color: AppColors.unselected)
+        ],
+      ),
     );
   }
 }
