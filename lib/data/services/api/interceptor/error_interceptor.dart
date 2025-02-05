@@ -16,13 +16,22 @@ class ErrorInterceptor extends InterceptorsWrapper {
       errorMessage = 'Receive Timeout';
     } else if (e.type == DioExceptionType.sendTimeout) {
       errorMessage = 'Send Timeout';
+    } else if (e.type == DioExceptionType.connectionError) {
+      errorMessage = 'Connection';
+    } else if (e.type == DioExceptionType.cancel) {
+      errorMessage = 'Cancel';
+    } else if (e.type == DioExceptionType.badCertificate) {
+      errorMessage = 'Bad Certificate';
+    } else if (e.type == DioExceptionType.badResponse) {
+      errorMessage = 'Bad Response';
+    } else if (e.type == DioExceptionType.unknown) {
+      errorMessage = 'Unknown';
     }
 
-    // Lanzar ApiException
     handler.reject(
       DioException(
         response: e.response,
-        type: DioExceptionType.unknown,
+        type: e.type,
         error: ApiException(errorMessage, statusCode: statusCode),
         requestOptions: e.requestOptions,
       ),
