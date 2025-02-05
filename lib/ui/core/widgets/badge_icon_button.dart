@@ -20,6 +20,7 @@ class BadgeIconButton extends StatelessWidget {
       children: [
         Chip(
           backgroundColor: AppColors.white,
+          visualDensity: VisualDensity.compact,
           side: BorderSide(
             color: Colors.grey.shade300,
             width: 1,

@@ -48,7 +48,7 @@ class _BuildFilterView extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
-          spacing: 10,
+          spacing: 5,
           children: [
             SizedBox(width: 5),
             BadgeIconButton(
