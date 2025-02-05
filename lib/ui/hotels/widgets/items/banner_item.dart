@@ -9,133 +9,142 @@ class BannerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ItemCard(
-      child: Row(
-        spacing: 10,
-        children: [
-          Expanded(
-            child: LayoutBuilder(builder: (_,constraints){
-              final width = constraints.maxWidth;
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: Image.network(
-                  "https://picsum.photos/500",
-                  fit: BoxFit.cover,
-                  width: width,
-                  height: width,
-                ),
-              );
-            }),
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+      child: LayoutBuilder(
+        builder: (_, constraints) {
+          final width = constraints.maxWidth;
+          return SizedBox(
+            height: width / 2,
+            child: Row(
+              spacing: 10,
               children: [
-                Row(
-                  spacing: 10,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(MdiIcons.bed, size: 15),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            'Featured hotel! - Wallaby 1402 Sydney',
-                            maxLines: 2,
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelMedium
-                                ?.copyWith(fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            'Australia',
-                            maxLines: 1,
-                            style: Theme.of(context).textTheme.labelSmall,
-                          ),
-                        ],
-                      ),
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.network(
+                      "https://picsum.photos/500",
+                      fit: BoxFit.cover,
+                      width: width,
+                      height: width,
                     ),
-                  ],
+                  ),
                 ),
-                SizedBox(height: 25,),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
-                      borderRadius: BorderRadius.circular(5)),
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.all(3),
-                        child: Text(
-                          '30% discount',
-                          maxLines: 1,
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge
-                              ?.copyWith(fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                      Divider(
-                        color: AppColors.white,
-                        thickness: 2,
-                        height: 5,
-                        indent: 5,
-                        endIndent: 5,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(3),
-                        child: Text(
-                          'starting from \$15 USD',
-                          maxLines: 1,
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.labelSmall,
-                        ),
-                      ),
-                      FilledButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            backgroundColor:
-                                WidgetStateProperty.all(AppColors.green),
-                            shape: WidgetStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              ),
+                      Row(
+                        spacing: 10,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(MdiIcons.bed, size: 15),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Text(
+                                  'Featured hotel! - Wallaby 1402 Sydney',
+                                  maxLines: 2,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelLarge
+                                      ?.copyWith(fontWeight: FontWeight.w600),
+                                ),
+                                Text(
+                                  'Australia',
+                                  maxLines: 1,
+                                  style: Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ],
                             ),
-                            minimumSize: WidgetStateProperty.all(
-                              Size(double.infinity, 30),
-                            ),
-                            maximumSize: WidgetStateProperty.all(
-                              Size(double.infinity, 30),
-                            ),
-                            padding: WidgetStateProperty.all(EdgeInsets.zero)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade100,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Text(
-                              'reserve',
-                              style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                color: AppColors.white,
-                                fontWeight: FontWeight.w600
+                            Padding(
+                              padding: EdgeInsets.all(3),
+                              child: Text(
+                                '30% discount',
+                                maxLines: 1,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelLarge
+                                    ?.copyWith(fontWeight: FontWeight.w600),
                               ),
                             ),
-                            const SizedBox(width: 5),
-                            Icon(
-                              Icons.chevron_right_rounded,
-                              size: 15,
+                            Divider(
+                              color: AppColors.white,
+                              thickness: 2,
+                              height: 5,
+                              indent: 5,
+                              endIndent: 5,
                             ),
+                            Padding(
+                              padding: EdgeInsets.all(3),
+                              child: Text(
+                                'starting from \$15 USD',
+                                maxLines: 1,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.labelSmall,
+                              ),
+                            ),
+                            FilledButton(
+                              onPressed: () {},
+                              style: ButtonStyle(
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  backgroundColor:
+                                      WidgetStateProperty.all(AppColors.green),
+                                  shape: WidgetStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                  minimumSize: WidgetStateProperty.all(
+                                    Size(double.infinity, 30),
+                                  ),
+                                  maximumSize: WidgetStateProperty.all(
+                                    Size(double.infinity, 30),
+                                  ),
+                                  padding:
+                                      WidgetStateProperty.all(EdgeInsets.zero)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'reserve',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium
+                                        ?.copyWith(
+                                            color: AppColors.white,
+                                            fontWeight: FontWeight.w600),
+                                  ),
+                                  const SizedBox(width: 5),
+                                  Icon(
+                                    Icons.chevron_right_rounded,
+                                    size: 15,
+                                  ),
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       )
                     ],
                   ),
-                )
+                ),
               ],
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

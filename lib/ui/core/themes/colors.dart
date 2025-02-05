@@ -9,4 +9,6 @@ abstract final class AppColors {
   static const rating = Color(0xFFFFB100);
   static const primaryDark = Color(0xFFCB0000);
   static const black = Color(0xFF000000);
+  static const backgroundCard = Color(0xFFF0F0F0);
+  static const primaryVariant = Color(0xFFFF0016);
 }

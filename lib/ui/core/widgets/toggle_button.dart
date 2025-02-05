@@ -36,7 +36,7 @@ class _ToggleButtonState extends State<ToggleButton> {
         child: Chip(
           visualDensity: VisualDensity.compact,
           padding: EdgeInsets.symmetric(horizontal: 3),
-          backgroundColor: _isSelected ? AppColors.primary : AppColors.white,
+          backgroundColor: _isSelected ? AppColors.primaryVariant : AppColors.white,
           side: BorderSide(
             color: _isSelected ? Colors.transparent : Colors.grey.shade300,
             width: 1,

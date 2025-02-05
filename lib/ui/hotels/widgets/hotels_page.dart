@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
@@ -55,9 +56,25 @@ class HotelsPageBuilder extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: BannerItem(),
+                child: ColoredBox(
+                  color: AppColors.backgroundCard,
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                      viewportFraction: 1,
+                    ),
+                    items: [
+                      BannerItem(),
+                      BannerItem(),
+                      BannerItem(),
+                      BannerItem(),
+                      BannerItem(),
+                    ].map((i) {
+                      return Padding(
+                        padding: EdgeInsets.all(10),
+                        child: i,
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
               SliverPersistentHeader(

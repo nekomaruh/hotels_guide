@@ -46,7 +46,7 @@ class BadgeIconButton extends StatelessWidget {
             top: 0,
             left: 0,
             child: Badge(
-              backgroundColor: Colors.red,
+              backgroundColor: AppColors.primaryVariant,
               textColor: AppColors.white,
               label: Text(count.toString(), style: TextStyle(fontSize: 12)),
             ),
