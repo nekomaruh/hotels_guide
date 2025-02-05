@@ -29,14 +29,18 @@ class _ToggleButtonState extends State<ToggleButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _toggleSelection,
+      onTap: () {
+        _toggleSelection();
+        widget.onTap(_isSelected);
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeIn,
         child: Chip(
           visualDensity: VisualDensity.compact,
           padding: EdgeInsets.symmetric(horizontal: 3),
-          backgroundColor: _isSelected ? AppColors.primaryVariant : AppColors.white,
+          backgroundColor:
+              _isSelected ? AppColors.primaryVariant : AppColors.white,
           side: BorderSide(
             color: _isSelected ? Colors.transparent : Colors.grey.shade300,
             width: 1,

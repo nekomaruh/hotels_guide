@@ -12,14 +12,22 @@ import 'package:hotels_guide/ui/hotels/widgets/items/hotel_item.dart';
 
 import '../../../config/dependencies.dart';
 import '../bloc/hotels_state.dart';
+import '../cubit/filter_cubit/suite_filter_cubit.dart';
 
 class HotelsPage extends StatelessWidget {
   const HotelsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => HotelsBloc(sl())..add(FetchHotelsEvent()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => HotelsBloc(sl())..add(FetchHotelsEvent()),
+        ),
+        BlocProvider(
+          create: (_) => SuiteFilterCubit(),
+        ),
+      ],
       child: HotelsPageBuilder(),
     );
   }
@@ -48,11 +56,11 @@ class HotelsPageBuilder extends StatelessWidget {
             ),
           ],
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(10), // Ajusta el espacio de debajo del título
+            preferredSize: Size.fromHeight(10),
+            // Ajusta el espacio de debajo del título
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 15),
-              child: DropdownPlaceholder()
-            ),
+                padding: const EdgeInsets.only(bottom: 15),
+                child: DropdownPlaceholder()),
           ),
         ),
       ),
