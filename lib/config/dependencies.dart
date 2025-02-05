@@ -4,6 +4,8 @@ import 'package:hotels_guide/data/repositories/hotels_repository.dart';
 import 'package:hotels_guide/data/repositories/hotels_repository_impl.dart';
 import 'package:hotels_guide/data/services/api/dio_http_client.dart';
 import 'package:hotels_guide/data/services/api/dio_http_client_impl.dart';
+import 'package:hotels_guide/domain/use_case/get_hotels_use_case.dart';
+import 'package:hotels_guide/utils/use_case.dart';
 
 import '../data/services/api/ssl/ssl_manager.dart';
 import 'endpoints.dart';
@@ -11,11 +13,12 @@ import 'endpoints.dart';
 final sl = GetIt.instance;
 
 Future<void> setupDependencies() async {
-  setupDio();
+  setupHttpClient();
   setupRepository();
+  setupUseCases();
 }
 
-setupDio() {
+setupHttpClient() {
   final dio = Dio(BaseOptions(baseUrl: Endpoints.apiUrl));
 
   SSLManager.enableUnknownCertificates(dio); // Unsafe but required from API
@@ -27,4 +30,8 @@ setupDio() {
 
 setupRepository() {
   sl.registerLazySingleton<HotelsRepository>(() => HotelsRepositoryImpl(sl()));
+}
+
+setupUseCases() {
+  sl.registerLazySingleton<UseCase>(() => GetHotelsUseCase(sl()));
 }
