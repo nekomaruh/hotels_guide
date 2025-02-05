@@ -14,7 +14,7 @@ class SuiteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 5,
+      spacing: 3,
       children: [
         ItemCard(
           child: Column(
@@ -107,7 +107,7 @@ class SuiteItem extends StatelessWidget {
             return PeriodItem(period: suite.periodos[i]);
           },
           separatorBuilder: (_, __) {
-            return SizedBox(height: 5);
+            return SizedBox(height: 3);
           },
         )
       ],

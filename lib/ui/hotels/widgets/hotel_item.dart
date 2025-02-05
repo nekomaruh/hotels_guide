@@ -30,7 +30,7 @@ class HotelItem extends StatelessWidget {
             itemCount: motei.suites.length,
             itemBuilder: (context, i) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 3),
                 child: SuiteItem(suite: motei.suites[i]),
               );
             },
