@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
-import 'package:hotels_guide/ui/core/widgets/badge_icon_button.dart';
-import 'package:hotels_guide/ui/core/widgets/toggle_button.dart';
+import 'package:hotels_guide/ui/hotels/widgets/items/banner_item.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/filter_sticky_header.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/sliding_button.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_bloc.dart';
@@ -56,10 +55,9 @@ class HotelsPageBuilder extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: Image.network(
-                  "https://picsum.photos/800/400",
-                  fit: BoxFit.cover,
-                  height: 200,
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: BannerItem(),
                 ),
               ),
               SliverPersistentHeader(
