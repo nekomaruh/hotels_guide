@@ -33,5 +33,5 @@ setupRepository() {
 }
 
 setupUseCases() {
-  sl.registerLazySingleton<UseCase>(() => GetHotelsUseCase(sl()));
+  sl.registerLazySingleton(() => GetHotelsUseCase(sl()));
 }
