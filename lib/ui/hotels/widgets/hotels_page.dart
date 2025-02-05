@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_bloc.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_event.dart';
-import 'package:hotels_guide/ui/hotels/widgets/hotel_item.dart';
+import 'package:hotels_guide/ui/hotels/widgets/items/hotel_item.dart';
 
 import '../../../config/dependencies.dart';
 import '../bloc/hotels_state.dart';

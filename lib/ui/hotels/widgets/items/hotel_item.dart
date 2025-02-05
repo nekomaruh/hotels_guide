@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
 import 'package:hotels_guide/ui/core/widgets/rating_chip.dart';
 import 'package:hotels_guide/ui/core/widgets/rating_counter.dart';
-import 'package:hotels_guide/ui/hotels/widgets/suite_item.dart';
+import 'package:hotels_guide/ui/hotels/widgets/items/suite_item.dart';
 
-import '../../../domain/entity/motei.dart';
+import '../../../../domain/entity/motei.dart';
 
 class HotelItem extends StatelessWidget {
   final Motei motei;

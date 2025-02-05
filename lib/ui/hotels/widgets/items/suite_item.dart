@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:hotels_guide/ui/core/widgets/item_card.dart';
-import 'package:hotels_guide/ui/hotels/widgets/period_item.dart';
+import 'package:hotels_guide/ui/hotels/widgets/items/period_item.dart';
 
-import '../../../domain/entity/suite.dart';
-import '../../core/themes/colors.dart';
+import '../../../../domain/entity/suite.dart';
+import '../../../core/themes/colors.dart';
+
 
 class SuiteItem extends StatelessWidget {
   final Suite suite;
