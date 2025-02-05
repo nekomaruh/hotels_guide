@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
+import 'package:hotels_guide/ui/core/widgets/dropdown_placeholder.dart';
 import 'package:hotels_guide/ui/hotels/widgets/items/banner_item.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/filter_sticky_header.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/sliding_button.dart';
@@ -31,19 +32,29 @@ class HotelsPageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(),
-      appBar: AppBar(
-        title: SlidingButton(
-          value: 1,
-          onChanged: (v) {},
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.search,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100), // Ajusta la altura que necesites
+        child: AppBar(
+          title: SlidingButton(
+            value: 1,
+            onChanged: (v) {},
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search,
+              ),
+            ),
+          ],
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(10), // Ajusta el espacio de debajo del título
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 15),
+              child: DropdownPlaceholder()
             ),
           ),
-        ],
+        ),
       ),
       backgroundColor: AppColors.primary,
       body: ClipRRect(
