@@ -34,7 +34,6 @@ class _ToggleButtonState extends State<ToggleButton> {
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeIn,
         child: Chip(
-          visualDensity: VisualDensity.compact,
           padding: EdgeInsets.symmetric(horizontal: 3),
           backgroundColor: _isSelected ? AppColors.primary : AppColors.white,
           side: BorderSide(

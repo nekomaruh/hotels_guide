@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
 import 'package:hotels_guide/ui/core/widgets/badge_icon_button.dart';
 import 'package:hotels_guide/ui/core/widgets/toggle_button.dart';
+import 'package:hotels_guide/ui/hotels/widgets/panel/filter_sticky_header.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/sliding_button.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_bloc.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_event.dart';
@@ -64,7 +65,7 @@ class HotelsPageBuilder extends StatelessWidget {
               SliverPersistentHeader(
                 pinned: true,
                 floating: false,
-                delegate: _StickyHeaderDelegate(),
+                delegate: FilterStickyHeader(),
               ),
               SliverToBoxAdapter(
                 child: BlocBuilder<HotelsBloc, HotelsState>(
@@ -102,48 +103,4 @@ class HotelsPageBuilder extends StatelessWidget {
       ),
     );
   }
-}
-
-class _StickyHeaderDelegate extends SliverPersistentHeaderDelegate {
-  @override
-  double get minExtent => 50; // Tamaño mínimo cuando está pegado
-  @override
-  double get maxExtent => 50; // Tamaño máximo
-
-  @override
-  Widget build(
-    BuildContext context,
-    double shrinkOffset,
-    bool overlapsContent,
-  ) {
-    return Container(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text(
-                "Filtros de búsqueda",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          Row(
-            children: [
-              ToggleButton(text: 'filtros', selected: true, onTap: (v){}),
-              BadgeIconButton(count: 1, icon:  Icons.access_time, text: "text"),
-            ],
-          ),
-          Divider(
-            height: 0,
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      false;
 }
