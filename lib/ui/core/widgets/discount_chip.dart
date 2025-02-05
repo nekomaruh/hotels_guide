@@ -9,25 +9,25 @@ class DiscountChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      //height: 25,
-      child: Chip(
-        visualDensity: VisualDensity(horizontal: 0, vertical: -4),
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        labelPadding: EdgeInsets.zero,
-        label: FittedBox(
-          child: Text(
-            "$discount% off",
-            style: Theme.of(context)
-                .textTheme
-                .labelSmall
-                ?.copyWith(color: AppColors.green),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        color: AppColors.container, // Color de fondo
+        borderRadius: BorderRadius.circular(20), // Bordes redondeados
+        border: Border.all(color: AppColors.green), // Borde
+      ),
+      child: FittedBox(
+        child: Text(
+          "$discount% off",
+          style: Theme.of(context)
+              .textTheme
+              .labelLarge
+              ?.copyWith(color: AppColors.green),
+          textHeightBehavior: TextHeightBehavior(
+            applyHeightToFirstAscent: true,
+            applyHeightToLastDescent: true,
+            leadingDistribution: TextLeadingDistribution.proportional,
           ),
-        ),
-        backgroundColor: AppColors.container,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: AppColors.green),
         ),
       ),
     );

@@ -21,11 +21,15 @@ class PeriodItem extends StatelessWidget {
           children: [
             Text(
               period.tempoFormatado,
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: Colors.black87
+              ),
             ),
             if (hasDiscount) ...[
               SizedBox(width: 10),
-              DiscountChip(discount: period.desconto!.desconto.toString())
+              DiscountChip(
+                discount: period.desconto!.desconto.toInt().toString(),
+              )
             ]
           ],
         ),
