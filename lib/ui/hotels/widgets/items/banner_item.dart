@@ -1,7 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
+import 'package:hotels_guide/ui/core/widgets/fade_image.dart';
 import 'package:hotels_guide/ui/core/widgets/item_card.dart';
+import 'package:shimmer/shimmer.dart';
 
 class BannerItem extends StatelessWidget {
   const BannerItem({super.key});
@@ -18,15 +21,11 @@ class BannerItem extends StatelessWidget {
               spacing: 10,
               children: [
                 Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Image.network(
-                      "https://picsum.photos/500",
-                      fit: BoxFit.cover,
-                      width: width,
-                      height: width,
-                    ),
-                  ),
+                  child: FadeImage(
+                    url: 'https://picsum.photos/500',
+                    width: width,
+                    height: width,
+                  )
                 ),
                 Expanded(
                   child: Column(
@@ -44,7 +43,8 @@ class BannerItem extends StatelessWidget {
                                 Text(
                                   'Featured hotel! - Wallaby 1402 Sydney',
                                   maxLines: 2,
-                                  style: Theme.of(context)
+                                  style: Theme
+                                      .of(context)
                                       .textTheme
                                       .labelLarge
                                       ?.copyWith(fontWeight: FontWeight.w600),
@@ -52,7 +52,10 @@ class BannerItem extends StatelessWidget {
                                 Text(
                                   'Australia',
                                   maxLines: 1,
-                                  style: Theme.of(context).textTheme.labelMedium,
+                                  style: Theme
+                                      .of(context)
+                                      .textTheme
+                                      .labelMedium,
                                 ),
                               ],
                             ),
@@ -73,7 +76,8 @@ class BannerItem extends StatelessWidget {
                                 '30% discount',
                                 maxLines: 1,
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context)
+                                style: Theme
+                                    .of(context)
                                     .textTheme
                                     .labelLarge
                                     ?.copyWith(fontWeight: FontWeight.w600),
@@ -92,16 +96,19 @@ class BannerItem extends StatelessWidget {
                                 'starting from \$15 USD',
                                 maxLines: 1,
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.labelSmall,
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .labelSmall,
                               ),
                             ),
                             FilledButton(
                               onPressed: () {},
                               style: ButtonStyle(
                                   tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
+                                  MaterialTapTargetSize.shrinkWrap,
                                   backgroundColor:
-                                      WidgetStateProperty.all(AppColors.green),
+                                  WidgetStateProperty.all(AppColors.green),
                                   shape: WidgetStateProperty.all(
                                     RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5),
@@ -114,18 +121,19 @@ class BannerItem extends StatelessWidget {
                                     Size(double.infinity, 30),
                                   ),
                                   padding:
-                                      WidgetStateProperty.all(EdgeInsets.zero)),
+                                  WidgetStateProperty.all(EdgeInsets.zero)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
                                     'reserve',
-                                    style: Theme.of(context)
+                                    style: Theme
+                                        .of(context)
                                         .textTheme
                                         .labelMedium
                                         ?.copyWith(
-                                            color: AppColors.white,
-                                            fontWeight: FontWeight.w600),
+                                        color: AppColors.white,
+                                        fontWeight: FontWeight.w600),
                                   ),
                                   const SizedBox(width: 5),
                                   Icon(

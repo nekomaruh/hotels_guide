@@ -10,6 +10,7 @@ import 'package:hotels_guide/ui/hotels/widgets/panel/sliding_button.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_bloc.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_event.dart';
 import 'package:hotels_guide/ui/hotels/widgets/items/hotel_item.dart';
+import 'package:hotels_guide/ui/hotels/widgets/state/hotel_loader.dart';
 
 import '../../../config/dependencies.dart';
 import '../bloc/hotels_state.dart';
@@ -85,12 +86,7 @@ class HotelsPageBuilder extends StatelessWidget {
                 child: BlocBuilder<HotelsBloc, HotelsState>(
                   builder: (context, state) {
                     if (state is HotelsLoading) {
-                      return const Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: CircularProgressIndicator(),
-                        ),
-                      );
+                      return const HotelLoader();
                     } else if (state is HotelsLoaded) {
                       final data =
                           FilterBuilder(data: state.data).apply(filters);

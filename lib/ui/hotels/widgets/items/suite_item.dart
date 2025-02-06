@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:hotels_guide/ui/core/widgets/fade_image.dart';
 import 'package:hotels_guide/ui/core/widgets/item_card.dart';
 import 'package:hotels_guide/ui/hotels/widgets/items/period_item.dart';
 
 import '../../../../domain/entity/suite.dart';
 import '../../../core/themes/colors.dart';
-
 
 class SuiteItem extends StatelessWidget {
   final Suite suite;
@@ -20,10 +20,7 @@ class SuiteItem extends StatelessWidget {
         ItemCard(
           child: Column(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: Image.network(suite.fotos[0], fit: BoxFit.cover),
-              ),
+              FadeImage(url: suite.fotos[0]),
               SizedBox(height: 10),
               Text(
                 suite.nome,
@@ -86,9 +83,10 @@ class SuiteItem extends StatelessWidget {
               Text(
                 'ver\ntodos',
                 textAlign: TextAlign.right,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                  color: Colors.grey.shade600
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .labelMedium
+                    ?.copyWith(color: Colors.grey.shade600),
               ),
               SizedBox(width: 8),
               Icon(
