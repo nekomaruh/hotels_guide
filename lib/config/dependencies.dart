@@ -20,11 +20,10 @@ Future<void> setupDependencies() async {
 }
 
 setupHttpClient() {
-  final dio = Dio(BaseOptions(baseUrl: Endpoints.apiUrl));
-
-  dio.interceptors.add(LoggingInterceptor());
-  dio.interceptors.add(ErrorInterceptor());
-  SSLManager.enableUnknownCertificates(dio); // Unsafe but required from API
+  final dio = Dio(BaseOptions(baseUrl: Endpoints.apiUrl))
+    ..interceptors.add(LoggingInterceptor())
+    ..interceptors.add(ErrorInterceptor())
+    ..enableUnknownCertificates(); // Unsafe but required from API
 
   sl.registerLazySingleton<Dio>(() => dio);
 
