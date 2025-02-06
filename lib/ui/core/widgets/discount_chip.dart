@@ -12,9 +12,9 @@ class DiscountChip extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        color: AppColors.container, // Color de fondo
-        borderRadius: BorderRadius.circular(20), // Bordes redondeados
-        border: Border.all(color: AppColors.green), // Borde
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.green),
       ),
       child: FittedBox(
         child: Text(
