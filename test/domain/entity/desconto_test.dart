@@ -17,5 +17,5 @@ void main() {
       expect(json, {'desconto': 15.0});
     });
   });
-  
+
 }
