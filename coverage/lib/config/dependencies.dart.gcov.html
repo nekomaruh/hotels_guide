@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-02-06 12:29:47</td>
+            <td class="headerValue">2025-02-06 14:48:41</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -82,24 +82,23 @@
 <span id="L20"><span class="lineNum">      20</span>              : }</span>
 <span id="L21"><span class="lineNum">      21</span>              : </span>
 <span id="L22"><span class="lineNum">      22</span> <span class="tlaUNC">           0 : setupHttpClient() {</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaUNC">           0 :   final dio = Dio(BaseOptions(baseUrl: Endpoints.apiUrl));</span></span>
-<span id="L24"><span class="lineNum">      24</span>              : </span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :   dio.interceptors.add(LoggingInterceptor());</span></span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaUNC">           0 :   dio.interceptors.add(ErrorInterceptor());</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaUNC">           0 :   SSLManager.enableUnknownCertificates(dio); // Unsafe but required from API</span></span>
-<span id="L28"><span class="lineNum">      28</span>              : </span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC">           0 :   sl.registerLazySingleton&lt;Dio&gt;(() =&gt; dio);</span></span>
-<span id="L30"><span class="lineNum">      30</span>              : </span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC">           0 :   sl.registerLazySingleton&lt;DioHttpClient&gt;(() =&gt; DioHttpClientImpl(sl()));</span></span>
-<span id="L32"><span class="lineNum">      32</span>              : }</span>
-<span id="L33"><span class="lineNum">      33</span>              : </span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC">           0 : setupRepository() {</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC">           0 :   sl.registerLazySingleton&lt;HotelsRepository&gt;(() =&gt; HotelsRepositoryImpl(sl()));</span></span>
-<span id="L36"><span class="lineNum">      36</span>              : }</span>
-<span id="L37"><span class="lineNum">      37</span>              : </span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 : setupUseCases() {</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC">           0 :   sl.registerLazySingleton(() =&gt; GetHotelsUseCase(sl()));</span></span>
-<span id="L40"><span class="lineNum">      40</span>              : }</span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaUNC">           0 :   final dio = Dio(BaseOptions(baseUrl: Endpoints.apiUrl))</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC">           0 :     ..interceptors.add(LoggingInterceptor())</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :     ..interceptors.add(ErrorInterceptor())</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaUNC">           0 :     ..enableUnknownCertificates(); // Unsafe but required from API</span></span>
+<span id="L27"><span class="lineNum">      27</span>              : </span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC">           0 :   sl.registerLazySingleton&lt;Dio&gt;(() =&gt; dio);</span></span>
+<span id="L29"><span class="lineNum">      29</span>              : </span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC">           0 :   sl.registerLazySingleton&lt;DioHttpClient&gt;(() =&gt; DioHttpClientImpl(sl()));</span></span>
+<span id="L31"><span class="lineNum">      31</span>              : }</span>
+<span id="L32"><span class="lineNum">      32</span>              : </span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC">           0 : setupRepository() {</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC">           0 :   sl.registerLazySingleton&lt;HotelsRepository&gt;(() =&gt; HotelsRepositoryImpl(sl()));</span></span>
+<span id="L35"><span class="lineNum">      35</span>              : }</span>
+<span id="L36"><span class="lineNum">      36</span>              : </span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC">           0 : setupUseCases() {</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :   sl.registerLazySingleton(() =&gt; GetHotelsUseCase(sl()));</span></span>
+<span id="L39"><span class="lineNum">      39</span>              : }</span>
         </pre>
               </td>
             </tr>

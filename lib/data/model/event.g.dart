@@ -8,7 +8,9 @@ part of '../../domain/entity/event.dart';
 
 _$EventImpl _$$EventImplFromJson(Map<String, dynamic> json) => _$EventImpl(
       sucesso: json['sucesso'] as bool,
-      data: Data.fromJson(json['data'] as Map<String, dynamic>),
+      data: json['data'] == null
+          ? null
+          : Data.fromJson(json['data'] as Map<String, dynamic>),
       mensagem: json['mensagem'] as List<dynamic>,
     );
 

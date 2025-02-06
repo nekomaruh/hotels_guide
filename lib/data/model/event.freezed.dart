@@ -21,7 +21,7 @@ Event _$EventFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Event {
   bool get sucesso => throw _privateConstructorUsedError;
-  Data get data => throw _privateConstructorUsedError;
+  Data? get data => throw _privateConstructorUsedError;
   List<dynamic> get mensagem => throw _privateConstructorUsedError;
 
   /// Serializes this Event to a JSON map.
@@ -38,9 +38,9 @@ abstract class $EventCopyWith<$Res> {
   factory $EventCopyWith(Event value, $Res Function(Event) then) =
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
-  $Res call({bool sucesso, Data data, List<dynamic> mensagem});
+  $Res call({bool sucesso, Data? data, List<dynamic> mensagem});
 
-  $DataCopyWith<$Res> get data;
+  $DataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -59,7 +59,7 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
   @override
   $Res call({
     Object? sucesso = null,
-    Object? data = null,
+    Object? data = freezed,
     Object? mensagem = null,
   }) {
     return _then(_value.copyWith(
@@ -67,10 +67,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.sucesso
           : sucesso // ignore: cast_nullable_to_non_nullable
               as bool,
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Data,
+              as Data?,
       mensagem: null == mensagem
           ? _value.mensagem
           : mensagem // ignore: cast_nullable_to_non_nullable
@@ -82,8 +82,12 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $DataCopyWith<$Res> get data {
-    return $DataCopyWith<$Res>(_value.data, (value) {
+  $DataCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $DataCopyWith<$Res>(_value.data!, (value) {
       return _then(_value.copyWith(data: value) as $Val);
     });
   }
@@ -96,10 +100,10 @@ abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
       __$$EventImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool sucesso, Data data, List<dynamic> mensagem});
+  $Res call({bool sucesso, Data? data, List<dynamic> mensagem});
 
   @override
-  $DataCopyWith<$Res> get data;
+  $DataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -116,7 +120,7 @@ class __$$EventImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? sucesso = null,
-    Object? data = null,
+    Object? data = freezed,
     Object? mensagem = null,
   }) {
     return _then(_$EventImpl(
@@ -124,10 +128,10 @@ class __$$EventImplCopyWithImpl<$Res>
           ? _value.sucesso
           : sucesso // ignore: cast_nullable_to_non_nullable
               as bool,
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Data,
+              as Data?,
       mensagem: null == mensagem
           ? _value._mensagem
           : mensagem // ignore: cast_nullable_to_non_nullable
@@ -151,7 +155,7 @@ class _$EventImpl implements _Event {
   @override
   final bool sucesso;
   @override
-  final Data data;
+  final Data? data;
   final List<dynamic> _mensagem;
   @override
   List<dynamic> get mensagem {
@@ -199,7 +203,7 @@ class _$EventImpl implements _Event {
 abstract class _Event implements Event {
   const factory _Event(
       {required final bool sucesso,
-      required final Data data,
+      required final Data? data,
       required final List<dynamic> mensagem}) = _$EventImpl;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
@@ -207,7 +211,7 @@ abstract class _Event implements Event {
   @override
   bool get sucesso;
   @override
-  Data get data;
+  Data? get data;
   @override
   List<dynamic> get mensagem;
 
