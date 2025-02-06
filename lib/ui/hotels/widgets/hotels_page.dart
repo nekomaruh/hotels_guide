@@ -13,6 +13,7 @@ import 'package:hotels_guide/ui/hotels/widgets/items/hotel_item.dart';
 
 import '../../../config/dependencies.dart';
 import '../bloc/hotels_state.dart';
+import '../cubit/filter_cubit/filter_builder.dart';
 import '../cubit/filter_cubit/suite_filter_cubit.dart';
 
 class HotelsPage extends StatelessWidget {
@@ -36,6 +37,7 @@ class HotelsPageBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final filters = context.watch<SuiteFilterCubit>().state.appliedFilters;
     return Scaffold(
       drawer: Drawer(),
       appBar: PreferredSize(
@@ -90,13 +92,24 @@ class HotelsPageBuilder extends StatelessWidget {
                         ),
                       );
                     } else if (state is HotelsLoaded) {
+                      final data =
+                          FilterBuilder(data: state.data).apply(filters);
+                      if (data.moteis.isEmpty) {
+                        return SizedBox(
+                          width: double.infinity,
+                          height: 200,
+                          child: Center(
+                            child: Text('No hotels found'),
+                          ),
+                        );
+                      }
                       return ListView.builder(
                         shrinkWrap: true,
                         padding: EdgeInsets.symmetric(vertical: 15),
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount: state.data.moteis.length,
+                        itemCount: data.moteis.length,
                         itemBuilder: (_, i) {
-                          return HotelItem(motei: state.data.moteis[i]);
+                          return HotelItem(motei: data.moteis[i]);
                         },
                       );
                     } else if (state is HotelsError) {
@@ -167,4 +180,3 @@ class BannerView extends StatelessWidget {
     );
   }
 }
-
