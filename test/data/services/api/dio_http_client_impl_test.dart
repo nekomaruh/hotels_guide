@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 
 import 'dio_http_client_impl_test.mocks.dart';
 
+
 @GenerateMocks([Dio])
 void main() {
   late MockDio mockDio;
