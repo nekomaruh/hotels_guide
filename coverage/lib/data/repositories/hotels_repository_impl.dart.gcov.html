@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-02-06 14:48:41</td>
+            <td class="headerValue">2025-02-06 15:16:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -72,18 +72,18 @@
 <span id="L10"><span class="lineNum">      10</span>              : class HotelsRepositoryImpl implements HotelsRepository {</span>
 <span id="L11"><span class="lineNum">      11</span>              :   final DioHttpClient _client;</span>
 <span id="L12"><span class="lineNum">      12</span>              : </span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           1 :   HotelsRepositoryImpl(this._client);</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           2 :   HotelsRepositoryImpl(this._client);</span></span>
 <span id="L14"><span class="lineNum">      14</span>              : </span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :   @override</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           2 :   @override</span></span>
 <span id="L16"><span class="lineNum">      16</span>              :   Future&lt;Result&lt;Data&gt;&gt; getHotelsList() async {</span>
 <span id="L17"><span class="lineNum">      17</span>              :     try {</span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           2 :       final response = await _client.get(Endpoints.hotelsPath);</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           2 :       final event = Event.fromJson(response.data);</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :       return event.sucesso</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           2 :           ? Result.ok(event.data!)</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           4 :       final response = await _client.get(Endpoints.hotelsPath);</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           4 :       final event = Event.fromJson(response.data);</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           2 :       return event.sucesso</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           4 :           ? Result.ok(event.data!)</span></span>
 <span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           2 :           : Result.error(EventNotSuccess());</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           1 :     } on Exception catch (e) {</span></span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :       return Result.error(e);</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           2 :     } on Exception catch (e) {</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           2 :       return Result.error(e);</span></span>
 <span id="L25"><span class="lineNum">      25</span>              :     }</span>
 <span id="L26"><span class="lineNum">      26</span>              :   }</span>
 <span id="L27"><span class="lineNum">      27</span>              : }</span>

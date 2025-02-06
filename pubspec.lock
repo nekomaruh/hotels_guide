@@ -830,7 +830,7 @@ packages:
     source: hosted
     version: "0.7.3"
   test_coverage_badge:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: test_coverage_badge
       sha256: "3909beb9c06a40bd7bb74f23263eda0cfc1831055c3102f984790b8d45aa290c"
