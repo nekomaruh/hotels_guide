@@ -6,6 +6,8 @@ import 'package:hotels_guide/data/services/api/dio_http_client.dart';
 import 'package:hotels_guide/data/services/api/dio_http_client_impl.dart';
 import 'package:hotels_guide/domain/use_case/get_hotels_use_case.dart';
 
+import '../data/services/api/interceptor/error_interceptor.dart';
+import '../data/services/api/interceptor/logging_interceptor.dart';
 import '../data/services/api/ssl/ssl_manager.dart';
 import 'endpoints.dart';
 
@@ -20,6 +22,8 @@ Future<void> setupDependencies() async {
 setupHttpClient() {
   final dio = Dio(BaseOptions(baseUrl: Endpoints.apiUrl));
 
+  dio.interceptors.add(LoggingInterceptor());
+  dio.interceptors.add(ErrorInterceptor());
   SSLManager.enableUnknownCertificates(dio); // Unsafe but required from API
 
   sl.registerLazySingleton<Dio>(() => dio);

@@ -1,16 +1,11 @@
 import 'package:dio/dio.dart';
 
-import 'interceptor/error_interceptor.dart';
-import 'interceptor/logging_interceptor.dart';
 import 'dio_http_client.dart';
 
 class DioHttpClientImpl implements DioHttpClient {
   final Dio _dio;
 
-  DioHttpClientImpl(this._dio) {
-    _dio.interceptors.add(LoggingInterceptor());
-    _dio.interceptors.add(ErrorInterceptor());
-  }
+  DioHttpClientImpl(this._dio);
 
   @override
   Future<Response> get(String path, {Map<String, dynamic>? queryParameters}) {
