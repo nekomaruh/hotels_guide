@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
-import 'package:hotels_guide/utils/dash_line_painter.dart';
+import 'package:hotels_guide/ui/core/painter/dash_line_painter.dart';
 
 class DropdownPlaceholder extends StatelessWidget {
   const DropdownPlaceholder({super.key});
