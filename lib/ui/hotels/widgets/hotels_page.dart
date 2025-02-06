@@ -6,6 +6,7 @@ import 'package:hotels_guide/ui/core/widgets/dropdown_placeholder.dart';
 import 'package:hotels_guide/ui/hotels/cubit/carousel_cubit/carousel_cubit.dart';
 import 'package:hotels_guide/ui/hotels/widgets/items/banner_item.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/filter_sticky_header.dart';
+import 'package:hotels_guide/ui/hotels/widgets/panel/hotels_drawer.dart';
 import 'package:hotels_guide/ui/hotels/widgets/panel/sliding_button.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_bloc.dart';
 import 'package:hotels_guide/ui/hotels/bloc/hotels_event.dart';
@@ -41,7 +42,7 @@ class HotelsPageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     final filters = context.watch<SuiteFilterCubit>().state.appliedFilters;
     return Scaffold(
-      drawer: Drawer(),
+      drawer: HotelsDrawer(),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100),
         child: AppBar(
@@ -73,55 +74,62 @@ class HotelsPageBuilder extends StatelessWidget {
         ),
         child: ColoredBox(
           color: AppColors.background,
-          child: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                child: BannerView(),
-              ),
-              SliverPersistentHeader(
-                pinned: true,
-                floating: false,
-                delegate: FilterStickyHeader(),
-              ),
-              SliverToBoxAdapter(
-                child: AnimateWidget(
-                  child: BlocBuilder<HotelsBloc, HotelsState>(
-                    key: UniqueKey(),
-                    buildWhen: (previous, current) => previous != current,
-                    builder: (context, state) {
-                      if (state is HotelsLoading) {
-                        return  HotelLoader(key: UniqueKey());
-                      } else if (state is HotelsLoaded) {
-                        final data = FilterBuilder(data: state.data).apply(filters);
-                        if (data.moteis.isEmpty) {
-                          return SizedBox(
-                            key: ValueKey('empty'),
-                            width: double.infinity,
-                            height: 200,
-                            child: Center(child: Text('No hotels found')),
+          child: RefreshIndicator(
+            onRefresh: () async {
+              context.read<HotelsBloc>().add(FetchHotelsEvent());
+            },
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: BannerView(),
+                ),
+                SliverPersistentHeader(
+                  pinned: true,
+                  floating: false,
+                  delegate: FilterStickyHeader(),
+                ),
+                SliverToBoxAdapter(
+                  child: AnimateWidget(
+                    child: BlocBuilder<HotelsBloc, HotelsState>(
+                      key: UniqueKey(),
+                      buildWhen: (previous, current) => previous != current,
+                      builder: (context, state) {
+                        if (state is HotelsLoading) {
+                          return HotelLoader(key: UniqueKey());
+                        } else if (state is HotelsLoaded) {
+                          final data =
+                              FilterBuilder(data: state.data).apply(filters);
+                          if (data.moteis.isEmpty) {
+                            return SizedBox(
+                              key: ValueKey('empty'),
+                              width: double.infinity,
+                              height: 200,
+                              child: Center(child: Text('No hotels found')),
+                            );
+                          }
+                          return ListView.builder(
+                            key: ValueKey(data.hashCode),
+                            shrinkWrap: true,
+                            padding: EdgeInsets.symmetric(vertical: 15),
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: data.moteis.length,
+                            itemBuilder: (_, i) =>
+                                HotelItem(motei: data.moteis[i]),
+                          );
+                        } else if (state is HotelsError) {
+                          return Padding(
+                            key: ValueKey('error'),
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text("Error: ${state.message}"),
                           );
                         }
-                        return ListView.builder(
-                          key: ValueKey(data.hashCode),
-                          shrinkWrap: true,
-                          padding: EdgeInsets.symmetric(vertical: 15),
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: data.moteis.length,
-                          itemBuilder: (_, i) => HotelItem(motei: data.moteis[i]),
-                        );
-                      } else if (state is HotelsError) {
-                        return Padding(
-                          key: ValueKey('error'),
-                          padding: const EdgeInsets.all(16.0),
-                          child: Text("Error: ${state.message}"),
-                        );
-                      }
-                      return Container(key: ValueKey('default'));
-                    },
+                        return Container(key: ValueKey('default'));
+                      },
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

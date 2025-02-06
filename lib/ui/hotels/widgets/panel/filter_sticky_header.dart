@@ -31,6 +31,7 @@ class FilterStickyHeader extends SliverPersistentHeaderDelegate {
         ),
         Divider(
           height: 0,
+          color: AppColors.unselected,
         ),
       ],
     );
