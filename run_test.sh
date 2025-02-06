@@ -1,3 +1,11 @@
+# Run tests
 flutter test --coverage
-genhtml ./coverage/lcov.info -o coverage
-dart run test_coverage_badge --file ./coverage/lcov.info
+
+# Exclude non unit-tests
+lcov --remove coverage/lcov.info 'lib/ui/core/*' 'lib/ui/*/widgets' 'lib/main.dart' -o coverage/lcov_unit_test.info
+
+# Generate report
+genhtml ./coverage/lcov_unit_test.info -o coverage
+
+# Generate badge
+dart run test_coverage_badge --file ./coverage/lcov_unit_test.info
