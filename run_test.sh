@@ -8,4 +8,4 @@ lcov --remove coverage/lcov.info 'lib/ui/core/*' 'lib/ui/*/widgets' 'lib/ui/*/cu
 genhtml ./coverage/lcov_unit_test.info -o coverage
 
 # Generate badge
-dart run test_coverage_badge --file ./coverage/lcov_unit_test.info
+dart run test_coverage_badge --file ./coverage/lcov.info
