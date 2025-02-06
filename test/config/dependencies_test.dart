@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hotels_guide/config/dependencies.dart';
 import 'package:hotels_guide/data/repositories/hotels_repository.dart';
 import 'package:hotels_guide/data/services/api/dio_http_client.dart';
 import 'package:hotels_guide/domain/use_case/get_hotels_use_case.dart';

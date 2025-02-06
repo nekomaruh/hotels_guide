@@ -2,7 +2,7 @@
 flutter test --coverage
 
 # Exclude non unit-tests
-lcov --remove coverage/lcov.info 'lib/ui/core/*' 'lib/ui/*/widgets' 'lib/main.dart' -o coverage/lcov_unit_test.info
+lcov --remove coverage/lcov.info 'lib/ui/core/*' 'lib/ui/*/widgets' 'lib/ui/*/cubit' 'lib/ui/*/models' 'lib/main.dart' -o coverage/lcov_unit_test.info
 
 # Generate report
 genhtml ./coverage/lcov_unit_test.info -o coverage

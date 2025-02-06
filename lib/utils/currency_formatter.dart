@@ -1,7 +1,7 @@
 
 import 'package:currency_formatter/currency_formatter.dart';
 
-String formatCurrency(double brl) {
+String formatBrlCurrency(double brl) {
   CurrencyFormat brlSettings = CurrencyFormat(
     code: 'brl',
     symbol: 'R\$',
@@ -10,5 +10,6 @@ String formatCurrency(double brl) {
     decimalSeparator: ',',
     symbolSeparator: ' ',
   );
-  return CurrencyFormatter.format(brl, brlSettings);
+  final format = CurrencyFormatter.format(brl, brlSettings);
+  return format;
 }
