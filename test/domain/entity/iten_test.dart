@@ -15,6 +15,6 @@ void main() {
       final json = iten.toJson();
       expect(json, {'nome': 'item_nome'});
     });
-    
+
   });
 }
