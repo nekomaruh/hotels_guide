@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
-
 extension SSLExtension on Dio {
   void enableUnknownCertificates() {
     httpClientAdapter = IOHttpClientAdapter(
