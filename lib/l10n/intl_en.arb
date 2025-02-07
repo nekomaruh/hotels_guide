@@ -1,0 +1,31 @@
+{
+  "@@locale" : "en",
+  "filters" : "filters",
+  "withDiscount": "with discount",
+  "available": "available",
+  "hydro": "hydro",
+  "swimming_pool": "swimming pool",
+  "sauna": "sauna",
+  "ofuro": "ofuro",
+  "adultDecoration": "erotic decoration",
+  "themedDecoration": "themed decoration",
+  "adultChair": "erotic chair",
+  "danceFloor": "dance floor",
+  "privateGarage": "private garage",
+  "frigobar": "mini-bar",
+  "internetWiFi" : "internet wi-fi",
+  "suiteForParties": "suite for parties",
+  "suiteWithAccessibility": "suite with accessibility",
+
+  "goNow": "go now",
+  "goLater": "go later",
+
+  "reviews": "{count, plural, =1 {{count} review} other {{count} reviews}}",
+  "remainingSuites": "only {count} left via app",
+  "hours": "{count, plural, =1 {{count} hour} other {{count} hours}}",
+  "seeAll": "see\nall",
+
+  "discount": "{percentage}% discount",
+  "startingFromBrl": "starting from R${amount}",
+  "reserve": "reserve"
+}

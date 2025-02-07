@@ -1,0 +1,31 @@
+{
+  "@@locale" : "pt",
+  "filters" : "filtros",
+  "withDiscount": "com desconto",
+  "available": "disponíveis",
+  "hydro": "hidro",
+  "swimming_pool": "piscina",
+  "sauna": "sauna",
+  "ofuro": "ofurô",
+  "adultDecoration": "decoração erótica",
+  "themedDecoration": "decoração temática",
+  "adultChair": "cadeira erótica",
+  "danceFloor": "pista de dança",
+  "privateGarage": "garagem privativa",
+  "frigobar": "frigobar",
+  "internetWiFi" : "internet wi-fi",
+  "suiteForParties": "suite para festas",
+  "suiteWithAccessibility": "suite com acessibilidade",
+
+  "goNow": "ir agora",
+  "goLater": "ir outro dia",
+
+  "reviews": "{count, plural, =1 {{count} avaliação} other {{count} avaliações}}",
+  "remainingSuites": "só mais {count} pelo app",
+  "hours": "{count, plural, =1 {{count} hora} other {{count} horas}}",
+  "seeAll": "ver\ntodos",
+
+  "discount": "{percentage}% desconto",
+  "startingFromBrl": "desde R${amount}",
+  "reserve": "reserve"
+}
