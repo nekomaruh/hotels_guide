@@ -18,5 +18,7 @@
   "suiteWithAccessibility": "suite with accessibility",
 
   "goNow": "go now",
-  "goLater": "go later"
+  "goLater": "go later",
+
+  "reviews": "{count, plural, =1 {{count} review} other {{count} reviews}}"
 }
