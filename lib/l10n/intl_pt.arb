@@ -21,6 +21,8 @@
   "goLater": "ir outro dia",
 
   "reviews": "{count, plural, =1 {{count} avaliação} other {{count} avaliações}}",
-  "remainingSuites": "só mais {count} pelo app}"
+  "remainingSuites": "só mais {count} pelo app}",
+  "hours": "{count, plural, =1 {{count} hora} other {{count} horas}}",
+  "seeAll": "ver\ntodos"
 
 }

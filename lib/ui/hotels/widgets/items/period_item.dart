@@ -4,6 +4,8 @@ import 'package:hotels_guide/ui/core/widgets/discount_chip.dart';
 import 'package:hotels_guide/ui/core/widgets/item_card.dart';
 import 'package:hotels_guide/utils/currency_formatter.dart';
 
+import '../../../../generated/l10n.dart';
+
 class PeriodItem extends StatelessWidget {
   final Periodo period;
 
@@ -20,7 +22,7 @@ class PeriodItem extends StatelessWidget {
         title: Row(
           children: [
             Text(
-              period.tempoFormatado,
+              S.current.hours(int.parse(period.tempo)),
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: Colors.black87
               ),

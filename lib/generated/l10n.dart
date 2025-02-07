@@ -251,6 +251,28 @@ class S {
       args: [count],
     );
   }
+
+  /// `{count, plural, =1 {{count} hour} other {{count} hours}}`
+  String hours(num count) {
+    return Intl.plural(
+      count,
+      one: '$count hour',
+      other: '$count hours',
+      name: 'hours',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `see\nall`
+  String get seeAll {
+    return Intl.message(
+      'see\nall',
+      name: 'seeAll',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -20,9 +20,12 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'pt';
 
-  static String m0(count) => "só mais ${count} pelo app}";
+  static String m0(count) =>
+      "${Intl.plural(count, one: '${count} hora', other: '${count} horas')}";
 
-  static String m1(count) =>
+  static String m1(count) => "só mais ${count} pelo app}";
+
+  static String m2(count) =>
       "${Intl.plural(count, one: '${count} avaliação', other: '${count} avaliações')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -36,14 +39,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "frigobar": MessageLookupByLibrary.simpleMessage("frigobar"),
         "goLater": MessageLookupByLibrary.simpleMessage("ir outro dia"),
         "goNow": MessageLookupByLibrary.simpleMessage("ir agora"),
+        "hours": m0,
         "hydro": MessageLookupByLibrary.simpleMessage("hidro"),
         "internetWiFi": MessageLookupByLibrary.simpleMessage("internet wi-fi"),
         "ofuro": MessageLookupByLibrary.simpleMessage("ofurô"),
         "privateGarage":
             MessageLookupByLibrary.simpleMessage("garagem privativa"),
-        "remainingSuites": m0,
-        "reviews": m1,
+        "remainingSuites": m1,
+        "reviews": m2,
         "sauna": MessageLookupByLibrary.simpleMessage("sauna"),
+        "seeAll": MessageLookupByLibrary.simpleMessage("ver\ntodos"),
         "suiteForParties":
             MessageLookupByLibrary.simpleMessage("suite para festas"),
         "suiteWithAccessibility":

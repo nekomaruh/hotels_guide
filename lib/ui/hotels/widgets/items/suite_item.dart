@@ -82,7 +82,7 @@ class SuiteItem extends StatelessWidget {
               ),
               SizedBox(width: 10),
               Text(
-                'ver\ntodos',
+                S.current.seeAll,
                 textAlign: TextAlign.right,
                 style: Theme.of(context)
                     .textTheme
