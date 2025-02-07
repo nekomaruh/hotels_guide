@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotels_guide/config/dependencies.dart';
-import 'package:hotels_guide/ui/core/localizations/delegates.dart';
+import 'package:hotels_guide/ui/core/localizations/config.dart';
 import 'package:hotels_guide/ui/core/themes/theme.dart';
 import 'package:hotels_guide/ui/hotels/widgets/hotels_page.dart';
 
@@ -17,11 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Hotel's Guide",
       debugShowCheckedModeBanner: false,
-      locale: Locale('pt', 'BR'),
-      supportedLocales: [
-        Locale('pt', 'BR'),
-      ],
-      localizationsDelegates: localizationsDelegates,
+      supportedLocales: LocalizationsConfig.supportedLocales,
+      localizationsDelegates: LocalizationsConfig.delegates,
       theme: theme,
       home: const HotelsPage(),
     );

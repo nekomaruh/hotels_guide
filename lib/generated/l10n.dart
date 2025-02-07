@@ -59,6 +59,156 @@ class S {
       args: [],
     );
   }
+
+  /// `with discount`
+  String get withDiscount {
+    return Intl.message(
+      'with discount',
+      name: 'withDiscount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `available`
+  String get available {
+    return Intl.message(
+      'available',
+      name: 'available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `hydro`
+  String get hydro {
+    return Intl.message(
+      'hydro',
+      name: 'hydro',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `swimming pool`
+  String get swimming_pool {
+    return Intl.message(
+      'swimming pool',
+      name: 'swimming_pool',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sauna`
+  String get sauna {
+    return Intl.message(
+      'sauna',
+      name: 'sauna',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ofuro`
+  String get ofuro {
+    return Intl.message(
+      'ofuro',
+      name: 'ofuro',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `erotic decoration`
+  String get adultDecoration {
+    return Intl.message(
+      'erotic decoration',
+      name: 'adultDecoration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `themed decoration`
+  String get themedDecoration {
+    return Intl.message(
+      'themed decoration',
+      name: 'themedDecoration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `erotic chair`
+  String get adultChair {
+    return Intl.message(
+      'erotic chair',
+      name: 'adultChair',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `dance floor`
+  String get danceFloor {
+    return Intl.message(
+      'dance floor',
+      name: 'danceFloor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `private garage`
+  String get privateGarage {
+    return Intl.message(
+      'private garage',
+      name: 'privateGarage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `mini-bar`
+  String get frigobar {
+    return Intl.message(
+      'mini-bar',
+      name: 'frigobar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `internet wi-fi`
+  String get internetWiFi {
+    return Intl.message(
+      'internet wi-fi',
+      name: 'internetWiFi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `suite for parties`
+  String get suiteForParties {
+    return Intl.message(
+      'suite for parties',
+      name: 'suiteForParties',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `suite with accessibility`
+  String get suiteWithAccessibility {
+    return Intl.message(
+      'suite with accessibility',
+      name: 'suiteWithAccessibility',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

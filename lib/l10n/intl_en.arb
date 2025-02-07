@@ -1,5 +1,19 @@
 {
-  "@@locale": "en",
-  "filters": "filters"
-
+  "@@locale" : "en",
+  "filters" : "filters",
+  "withDiscount": "with discount",
+  "available": "available",
+  "hydro": "hydro",
+  "swimming_pool": "swimming pool",
+  "sauna": "sauna",
+  "ofuro": "ofuro",
+  "adultDecoration": "erotic decoration",
+  "themedDecoration": "themed decoration",
+  "adultChair": "erotic chair",
+  "danceFloor": "dance floor",
+  "privateGarage": "private garage",
+  "frigobar": "mini-bar",
+  "internetWiFi" : "internet wi-fi",
+  "suiteForParties": "suite for parties",
+  "suiteWithAccessibility": "suite with accessibility"
 }

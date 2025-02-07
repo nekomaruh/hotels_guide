@@ -22,6 +22,26 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "filters": MessageLookupByLibrary.simpleMessage("filtros")
+        "adultChair": MessageLookupByLibrary.simpleMessage("cadeira erótica"),
+        "adultDecoration":
+            MessageLookupByLibrary.simpleMessage("decoração erótica"),
+        "available": MessageLookupByLibrary.simpleMessage("disponíveis"),
+        "danceFloor": MessageLookupByLibrary.simpleMessage("pista de dança"),
+        "filters": MessageLookupByLibrary.simpleMessage("filtros"),
+        "frigobar": MessageLookupByLibrary.simpleMessage("frigobar"),
+        "hydro": MessageLookupByLibrary.simpleMessage("hidro"),
+        "internetWiFi": MessageLookupByLibrary.simpleMessage("internet wi-fi"),
+        "ofuro": MessageLookupByLibrary.simpleMessage("ofurô"),
+        "privateGarage":
+            MessageLookupByLibrary.simpleMessage("garagem privativa"),
+        "sauna": MessageLookupByLibrary.simpleMessage("sauna"),
+        "suiteForParties":
+            MessageLookupByLibrary.simpleMessage("suite para festas"),
+        "suiteWithAccessibility":
+            MessageLookupByLibrary.simpleMessage("suite com acessibilidade"),
+        "swimming_pool": MessageLookupByLibrary.simpleMessage("piscina"),
+        "themedDecoration":
+            MessageLookupByLibrary.simpleMessage("decoração temática"),
+        "withDiscount": MessageLookupByLibrary.simpleMessage("com desconto")
       };
 }
