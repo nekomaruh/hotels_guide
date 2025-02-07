@@ -18,7 +18,7 @@ class HotelsRepositoryImpl implements HotelsRepository {
       final response = await _client.get(Endpoints.hotelsPath);
       final event = Event.fromJson(response.data);
       return event.sucesso
-          ? Result.ok(event.data)
+          ? Result.ok(event.data!)
           : Result.error(EventNotSuccess());
     } on Exception catch (e) {
       return Result.error(e);

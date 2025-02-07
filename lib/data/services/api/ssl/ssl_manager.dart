@@ -3,14 +3,12 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
-class SSLManager {
-  static void enableUnknownCertificates(Dio dio) {
-    dio.httpClientAdapter = IOHttpClientAdapter(
+extension SSLExtension on Dio {
+  void enableUnknownCertificates() {
+    httpClientAdapter = IOHttpClientAdapter(
       createHttpClient: () {
         final HttpClient client = HttpClient(
-          context: SecurityContext(
-            withTrustedRoots: false,
-          ),
+          context: SecurityContext(withTrustedRoots: false),
         );
         client.badCertificateCallback = ((_, __, ___) => true);
         return client;

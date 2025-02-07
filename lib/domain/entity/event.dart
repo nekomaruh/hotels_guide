@@ -9,7 +9,7 @@ part '../../data/model/event.g.dart';
 class Event with _$Event {
   const factory Event({
     required bool sucesso,
-    required Data data,
+    required Data? data,
     required List<dynamic> mensagem,
   }) = _Event;
 

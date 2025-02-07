@@ -1,40 +1,43 @@
 import 'package:dio/dio.dart';
-
-import '../model/api_exception.dart';
+import 'package:flutter/cupertino.dart';
 
 class ErrorInterceptor extends InterceptorsWrapper {
-  @override
-  void onError(DioException e, ErrorInterceptorHandler handler) {
-    String errorMessage = e.message ?? "Unknown Error";
-    final int? statusCode = e.response?.statusCode;
+  final Map<int, String> _httpErrorMessages = {
+    400: 'Error 400: Bad request. Check request parameters.',
+    401: 'Error 401: Authentication failed. User not authorized.',
+    404: 'Error 404: Resource not found.',
+    500: 'Internal server error.',
+    502: 'Error 502: Bad Gateway.',
+    503: 'Error 503: Service unavailable.',
+  };
 
-    if (e.response != null) {
-      errorMessage = 'Error $statusCode: ${e.response?.statusMessage}';
-    } else if (e.type == DioExceptionType.connectionTimeout) {
-      errorMessage = 'Connection Timeout';
-    } else if (e.type == DioExceptionType.receiveTimeout) {
-      errorMessage = 'Receive Timeout';
-    } else if (e.type == DioExceptionType.sendTimeout) {
-      errorMessage = 'Send Timeout';
-    } else if (e.type == DioExceptionType.connectionError) {
-      errorMessage = 'Connection';
-    } else if (e.type == DioExceptionType.cancel) {
-      errorMessage = 'Cancel';
-    } else if (e.type == DioExceptionType.badCertificate) {
-      errorMessage = 'Bad Certificate';
-    } else if (e.type == DioExceptionType.badResponse) {
-      errorMessage = 'Bad Response';
-    } else if (e.type == DioExceptionType.unknown) {
-      errorMessage = 'Unknown';
+  final Map<DioExceptionType, String> _dioErrorMessages = {
+    DioExceptionType.connectionTimeout: 'Timeout Error: Connection timeout.',
+    DioExceptionType.sendTimeout: 'Timeout Error: Send timeout.',
+    DioExceptionType.receiveTimeout: 'Timeout Error: Receive timeout.',
+    DioExceptionType.connectionError: 'Network Error: No internet connection.',
+    DioExceptionType.badCertificate: 'Certificate Error: Invalid certificate.',
+    DioExceptionType.badResponse: 'Response Error: Unexpected server response.',
+    DioExceptionType.cancel: 'Request Canceled: The request was canceled.',
+    DioExceptionType.unknown: 'Unknown Error: An unexpected error occurred.',
+  };
+
+  @override
+  Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
+    if (err.response != null) {
+      final statusCode = err.response?.statusCode;
+
+      if (statusCode != null && _httpErrorMessages.containsKey(statusCode)) {
+        debugPrint(_httpErrorMessages[statusCode]!);
+      } else if (statusCode != null && statusCode >= 500) {
+        debugPrint('Server Error: ${err.response?.statusMessage} - Code: $statusCode');
+      } else {
+        debugPrint('Unknown HTTP Error. Code: $statusCode, Message: ${err.response?.statusMessage}');
+      }
+    } else if (_dioErrorMessages.containsKey(err.type)) {
+      debugPrint(_dioErrorMessages[err.type]!);
     }
 
-    handler.reject(
-      DioException(
-        response: e.response,
-        type: e.type,
-        error: ApiException(errorMessage, statusCode: statusCode),
-        requestOptions: e.requestOptions,
-      ),
-    );
+    return super.onError(err, handler);
   }
 }

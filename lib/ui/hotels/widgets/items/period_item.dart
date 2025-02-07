@@ -12,8 +12,8 @@ class PeriodItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hasDiscount = period.desconto != null;
-    final amount = formatCurrency(period.valor);
-    final total = formatCurrency(period.valorTotal);
+    final amount = period.valor.toBrlCurrency();
+    final total = period.valorTotal.toBrlCurrency();
 
     return ItemCard(
       child: ListTile(
