@@ -47,6 +47,9 @@ dependencies:
   cached_network_image: ^3.4.1
   shimmer: ^3.0.0
   expandable_page_view: ^1.0.17
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
