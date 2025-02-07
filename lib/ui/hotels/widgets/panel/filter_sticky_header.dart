@@ -48,6 +48,24 @@ class _BuildFilterView extends StatelessWidget {
 
   const _BuildFilterView({required this.filtersApplied});
 
+  static  Map<SuiteFilter, String> filterLabels = {
+    SuiteFilter.hasDiscount: S.current.withDiscount,
+    SuiteFilter.isAvailable: S.current.available,
+    SuiteFilter.hasHydro: S.current.hydro,
+    SuiteFilter.hasSwimmingPool: S.current.swimming_pool,
+    SuiteFilter.hasSauna: S.current.sauna,
+    SuiteFilter.hasOfuro: S.current.ofuro,
+    SuiteFilter.hasAdultDecoration: S.current.adultDecoration,
+    SuiteFilter.hasTematicDecoration: S.current.themedDecoration,
+    SuiteFilter.hasAdultChair: S.current.adultChair,
+    SuiteFilter.hasDanceFloor: S.current.danceFloor,
+    SuiteFilter.hasPrivateGarage: S.current.privateGarage,
+    SuiteFilter.hasFrigobar: S.current.frigobar,
+    SuiteFilter.hasInternetWifi: S.current.internetWiFi,
+    SuiteFilter.forParties: S.current.suiteForParties,
+    SuiteFilter.hasAccessibility: S.current.suiteWithAccessibility,
+  };
+
   @override
   Widget build(BuildContext context) {
     final isLoaded = context.watch<HotelsBloc>().state is HotelsLoaded;
@@ -76,7 +94,7 @@ class _BuildFilterView extends StatelessWidget {
                   ...SuiteFilter.values.map((item) {
                     return ToggleButton(
                       enabled: isLoaded,
-                      text: item.label,
+                      text: filterLabels[item] ?? '',
                       selected: state.appliedFilters.contains(item),
                       onTap: (v) {
                         context.read<SuiteFilterCubit>().toggleFilter(item);
