@@ -75,6 +75,8 @@ class HotelsPageBuilder extends StatelessWidget {
         child: ColoredBox(
           color: AppColors.background,
           child: RefreshIndicator(
+            color: AppColors.primaryVariant,
+            backgroundColor: AppColors.white,
             onRefresh: () async {
               context.read<HotelsBloc>().add(FetchHotelsEvent());
             },

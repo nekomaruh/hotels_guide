@@ -1,4 +1,6 @@
+import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:hotels_guide/domain/entity/suite.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
 import 'package:hotels_guide/ui/core/widgets/rating_chip.dart';
 import 'package:hotels_guide/ui/core/widgets/rating_counter.dart';
@@ -23,20 +25,42 @@ class HotelItem extends StatelessWidget {
           ratingCount: motei.qtdAvaliacoes.toString(),
         ),
         SizedBox(height: 15),
-        SizedBox(
-          height: 750,
-          child: PageView.builder(
-            controller: PageController(viewportFraction: 0.9),
-            itemCount: motei.suites.length,
-            itemBuilder: (context, i) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: SuiteItem(suite: motei.suites[i]),
-              );
-            },
-          ),
-        ),
+
+        _Content(suites: motei.suites)
       ],
+    );
+  }
+}
+
+class _Content extends StatefulWidget {
+  final List<Suite> suites;
+
+  const _Content({required this.suites});
+
+  @override
+  State<_Content> createState() => _ContentState();
+}
+
+class _ContentState extends State<_Content> {
+  final _controller = PageController(viewportFraction: 0.9);
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpandablePageView.builder(
+      controller: _controller,
+      itemCount: widget.suites.length,
+      itemBuilder: (context, i) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 3),
+          child: SuiteItem(suite: widget.suites[i]),
+        );
+      },
     );
   }
 }
