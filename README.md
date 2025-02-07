@@ -1,4 +1,6 @@
 # Hotels Guide
+![Coverage](coverage_badge.svg?sanitize=true)
+
 Test Flutter Developer - Guia de Moteis (Challenge) to evaluate skills in Flutter, Dart, state management, API consumption, and unit testing.
 
 ### 🎯 Challenge Description
@@ -16,8 +18,6 @@ Navigation to other screens is not required.
 Implement unit tests covering the main components of the application.
 
 # 💡 Solution
-
-![Coverage](coverage_badge.svg?sanitize=true)
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=mwY4PWfcDMw">
