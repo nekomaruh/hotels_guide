@@ -209,6 +209,26 @@ class S {
       args: [],
     );
   }
+
+  /// `go now`
+  String get goNow {
+    return Intl.message(
+      'go now',
+      name: 'goNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `go later`
+  String get goLater {
+    return Intl.message(
+      'go later',
+      name: 'goLater',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

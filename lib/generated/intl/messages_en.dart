@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "danceFloor": MessageLookupByLibrary.simpleMessage("dance floor"),
         "filters": MessageLookupByLibrary.simpleMessage("filters"),
         "frigobar": MessageLookupByLibrary.simpleMessage("mini-bar"),
+        "goLater": MessageLookupByLibrary.simpleMessage("go later"),
+        "goNow": MessageLookupByLibrary.simpleMessage("go now"),
         "hydro": MessageLookupByLibrary.simpleMessage("hydro"),
         "internetWiFi": MessageLookupByLibrary.simpleMessage("internet wi-fi"),
         "ofuro": MessageLookupByLibrary.simpleMessage("ofuro"),

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:hotels_guide/ui/core/themes/colors.dart';
 
+import '../../../../generated/l10n.dart';
+
 class SlidingButton extends StatefulWidget {
   final int value;
   final Function(int value) onChanged;
@@ -67,8 +69,8 @@ class _SlidingButtonState extends State<SlidingButton> {
         ?.copyWith(fontWeight: FontWeight.w600);
 
     final children = {
-      1: _buildText(1, 'ir agora', MdiIcons.flash, textStyle),
-      2: _buildText(2, 'ir outro dia', MdiIcons.calendar, textStyle),
+      1: _buildText(1, S.current.goNow, MdiIcons.flash, textStyle),
+      2: _buildText(2, S.current.goLater, MdiIcons.calendar, textStyle),
     };
 
     return Center(

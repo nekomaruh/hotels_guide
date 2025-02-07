@@ -15,5 +15,8 @@
   "frigobar": "frigobar",
   "internetWiFi" : "internet wi-fi",
   "suiteForParties": "suite para festas",
-  "suiteWithAccessibility": "suite com acessibilidade"
+  "suiteWithAccessibility": "suite com acessibilidade",
+
+  "goNow": "ir agora",
+  "goLater": "ir outro dia"
 }
