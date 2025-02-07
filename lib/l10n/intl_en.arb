@@ -20,5 +20,6 @@
   "goNow": "go now",
   "goLater": "go later",
 
-  "reviews": "{count, plural, =1 {{count} review} other {{count} reviews}}"
+  "reviews": "{count, plural, =1 {{count} review} other {{count} reviews}}",
+  "remainingSuites": "only {count} left via app"
 }

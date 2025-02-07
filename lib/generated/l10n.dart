@@ -241,6 +241,16 @@ class S {
       args: [count],
     );
   }
+
+  /// `only {count} left via app`
+  String remainingSuites(Object count) {
+    return Intl.message(
+      'only $count left via app',
+      name: 'remainingSuites',
+      desc: '',
+      args: [count],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
