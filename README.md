@@ -18,8 +18,7 @@ Implement unit tests covering the main components of the application.
 # 💡 Solution
 
 ![Coverage](coverage_badge.svg?sanitize=true)
-
-[App Running](example.webm)
+[![Guia de Motéis Flutter Challenge](https://img.youtube.com/vi/mwY4PWfcDMw/0.jpg)](https://www.youtube.com/watch?v=mwY4PWfcDMw)
 
 ## 🏗️ Project Architecture Overview
 
