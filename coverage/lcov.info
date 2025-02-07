@@ -290,7 +290,7 @@ DA:8,4
 DA:9,0
 DA:10,0
 DA:11,0
-DA:12,0
+DA:13,0
 LF:6
 LH:2
 end_of_record
@@ -1012,9 +1012,9 @@ LF:24
 LH:0
 end_of_record
 SF:lib/utils/currency_formatter.dart
-DA:4,0
 DA:5,0
-DA:13,0
+DA:6,0
+DA:14,0
 LF:3
 LH:0
 end_of_record
