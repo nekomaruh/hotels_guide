@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(count) =>
       "${Intl.plural(count, one: '${count} hora', other: '${count} horas')}";
 
-  static String m2(count) => "só mais ${count} pelo app}";
+  static String m2(count) => "só mais ${count} pelo app";
 
   static String m3(count) =>
       "${Intl.plural(count, one: '${count} avaliação', other: '${count} avaliações')}";
