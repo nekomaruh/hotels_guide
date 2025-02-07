@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n.dart';
+
 class RatingCounter extends StatelessWidget {
   final String count;
 
@@ -10,7 +12,7 @@ class RatingCounter extends StatelessWidget {
     return Row(
       children: [
         Text(
-          '$count avaliacoes',
+          S.current.reviews(int.parse(count)),
           style: Theme.of(context)
               .textTheme
               .labelLarge,

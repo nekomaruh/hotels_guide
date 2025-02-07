@@ -5,6 +5,7 @@ import 'package:hotels_guide/ui/core/widgets/item_card.dart';
 import 'package:hotels_guide/ui/hotels/widgets/items/period_item.dart';
 
 import '../../../../domain/entity/suite.dart';
+import '../../../../generated/l10n.dart';
 import '../../../core/themes/colors.dart';
 
 class SuiteItem extends StatelessWidget {
@@ -35,7 +36,7 @@ class SuiteItem extends StatelessWidget {
                   children: [
                     Icon(MdiIcons.alarmLight, color: Colors.red, size: 15),
                     Text(
-                      "só mais ${suite.qtd} pelo app",
+                      S.current.remainingSuites(suite.qtd),
                       style: TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.w600,
@@ -81,7 +82,7 @@ class SuiteItem extends StatelessWidget {
               ),
               SizedBox(width: 10),
               Text(
-                'ver\ntodos',
+                S.current.seeAll,
                 textAlign: TextAlign.right,
                 style: Theme.of(context)
                     .textTheme

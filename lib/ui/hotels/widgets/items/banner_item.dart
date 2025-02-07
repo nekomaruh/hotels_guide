@@ -4,6 +4,8 @@ import 'package:hotels_guide/ui/core/themes/colors.dart';
 import 'package:hotels_guide/ui/core/widgets/fade_image.dart';
 import 'package:hotels_guide/ui/core/widgets/item_card.dart';
 
+import '../../../../generated/l10n.dart';
+
 class BannerItem extends StatelessWidget {
   const BannerItem({super.key});
 
@@ -93,7 +95,7 @@ class _ReserveSection extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(3),
             child: Text(
-              '30% discount',
+              S.current.discount("30"),
               maxLines: 1,
               textAlign: TextAlign.center,
               style: Theme.of(context)
@@ -112,7 +114,7 @@ class _ReserveSection extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(3),
             child: Text(
-              'starting from \$15 USD',
+              S.current.startingFromBrl(15),
               maxLines: 1,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelSmall,
@@ -139,7 +141,7 @@ class _ReserveSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'reserve',
+                  S.current.reserve,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: AppColors.white, fontWeight: FontWeight.w600),
                 ),
