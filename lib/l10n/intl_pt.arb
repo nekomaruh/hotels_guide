@@ -23,6 +23,9 @@
   "reviews": "{count, plural, =1 {{count} avaliação} other {{count} avaliações}}",
   "remainingSuites": "só mais {count} pelo app}",
   "hours": "{count, plural, =1 {{count} hora} other {{count} horas}}",
-  "seeAll": "ver\ntodos"
+  "seeAll": "ver\ntodos",
 
+  "discount": "{percentage}% desconto",
+  "startingFromBrl": "desde R${amount}",
+  "reserve": "reserve"
 }

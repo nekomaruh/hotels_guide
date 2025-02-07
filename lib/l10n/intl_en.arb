@@ -23,5 +23,9 @@
   "reviews": "{count, plural, =1 {{count} review} other {{count} reviews}}",
   "remainingSuites": "only {count} left via app",
   "hours": "{count, plural, =1 {{count} hour} other {{count} hours}}",
-  "seeAll": "see\nall"
+  "seeAll": "see\nall",
+
+  "discount": "{percentage}% discount",
+  "startingFromBrl": "starting from R${amount}",
+  "reserve": "reserve"
 }

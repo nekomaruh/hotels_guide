@@ -20,13 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(count) =>
+  static String m0(percentage) => "${percentage}% discount";
+
+  static String m1(count) =>
       "${Intl.plural(count, one: '${count} hour', other: '${count} hours')}";
 
-  static String m1(count) => "only ${count} left via app";
+  static String m2(count) => "only ${count} left via app";
 
-  static String m2(count) =>
+  static String m3(count) =>
       "${Intl.plural(count, one: '${count} review', other: '${count} reviews')}";
+
+  static String m4(amount) => "starting from R\$${amount}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -35,19 +39,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("erotic decoration"),
         "available": MessageLookupByLibrary.simpleMessage("available"),
         "danceFloor": MessageLookupByLibrary.simpleMessage("dance floor"),
+        "discount": m0,
         "filters": MessageLookupByLibrary.simpleMessage("filters"),
         "frigobar": MessageLookupByLibrary.simpleMessage("mini-bar"),
         "goLater": MessageLookupByLibrary.simpleMessage("go later"),
         "goNow": MessageLookupByLibrary.simpleMessage("go now"),
-        "hours": m0,
+        "hours": m1,
         "hydro": MessageLookupByLibrary.simpleMessage("hydro"),
         "internetWiFi": MessageLookupByLibrary.simpleMessage("internet wi-fi"),
         "ofuro": MessageLookupByLibrary.simpleMessage("ofuro"),
         "privateGarage": MessageLookupByLibrary.simpleMessage("private garage"),
-        "remainingSuites": m1,
-        "reviews": m2,
+        "remainingSuites": m2,
+        "reserve": MessageLookupByLibrary.simpleMessage("reserve"),
+        "reviews": m3,
         "sauna": MessageLookupByLibrary.simpleMessage("sauna"),
         "seeAll": MessageLookupByLibrary.simpleMessage("see\nall"),
+        "startingFromBrl": m4,
         "suiteForParties":
             MessageLookupByLibrary.simpleMessage("suite for parties"),
         "suiteWithAccessibility":

@@ -20,13 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'pt';
 
-  static String m0(count) =>
+  static String m0(percentage) => "${percentage}% desconto";
+
+  static String m1(count) =>
       "${Intl.plural(count, one: '${count} hora', other: '${count} horas')}";
 
-  static String m1(count) => "só mais ${count} pelo app}";
+  static String m2(count) => "só mais ${count} pelo app}";
 
-  static String m2(count) =>
+  static String m3(count) =>
       "${Intl.plural(count, one: '${count} avaliação', other: '${count} avaliações')}";
+
+  static String m4(amount) => "desde R\$${amount}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -35,20 +39,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("decoração erótica"),
         "available": MessageLookupByLibrary.simpleMessage("disponíveis"),
         "danceFloor": MessageLookupByLibrary.simpleMessage("pista de dança"),
+        "discount": m0,
         "filters": MessageLookupByLibrary.simpleMessage("filtros"),
         "frigobar": MessageLookupByLibrary.simpleMessage("frigobar"),
         "goLater": MessageLookupByLibrary.simpleMessage("ir outro dia"),
         "goNow": MessageLookupByLibrary.simpleMessage("ir agora"),
-        "hours": m0,
+        "hours": m1,
         "hydro": MessageLookupByLibrary.simpleMessage("hidro"),
         "internetWiFi": MessageLookupByLibrary.simpleMessage("internet wi-fi"),
         "ofuro": MessageLookupByLibrary.simpleMessage("ofurô"),
         "privateGarage":
             MessageLookupByLibrary.simpleMessage("garagem privativa"),
-        "remainingSuites": m1,
-        "reviews": m2,
+        "remainingSuites": m2,
+        "reserve": MessageLookupByLibrary.simpleMessage("reserve"),
+        "reviews": m3,
         "sauna": MessageLookupByLibrary.simpleMessage("sauna"),
         "seeAll": MessageLookupByLibrary.simpleMessage("ver\ntodos"),
+        "startingFromBrl": m4,
         "suiteForParties":
             MessageLookupByLibrary.simpleMessage("suite para festas"),
         "suiteWithAccessibility":

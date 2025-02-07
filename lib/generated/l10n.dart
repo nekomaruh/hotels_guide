@@ -273,6 +273,36 @@ class S {
       args: [],
     );
   }
+
+  /// `{percentage}% discount`
+  String discount(Object percentage) {
+    return Intl.message(
+      '$percentage% discount',
+      name: 'discount',
+      desc: '',
+      args: [percentage],
+    );
+  }
+
+  /// `starting from R${amount}`
+  String startingFromBrl(Object amount) {
+    return Intl.message(
+      'starting from R\$$amount',
+      name: 'startingFromBrl',
+      desc: '',
+      args: [amount],
+    );
+  }
+
+  /// `reserve`
+  String get reserve {
+    return Intl.message(
+      'reserve',
+      name: 'reserve',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
