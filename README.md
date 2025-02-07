@@ -18,7 +18,12 @@ Implement unit tests covering the main components of the application.
 # 💡 Solution
 
 ![Coverage](coverage_badge.svg?sanitize=true)
-[![Guia de Motéis Flutter Challenge](https://img.youtube.com/vi/mwY4PWfcDMw/0.jpg)](https://www.youtube.com/watch?v=mwY4PWfcDMw)
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=mwY4PWfcDMw">
+    <img src="https://img.youtube.com/vi/mwY4PWfcDMw/0.jpg" alt="Guia de Motéis Flutter Challenge"/>
+  </a>
+</p>
 
 ## 🏗️ Project Architecture Overview
 
