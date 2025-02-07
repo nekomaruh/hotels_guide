@@ -19,6 +19,12 @@ Implement unit tests covering the main components of the application.
 
 ![Coverage](coverage_badge.svg?sanitize=true)
 
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=mwY4PWfcDMw">
+    <img src="https://img.youtube.com/vi/mwY4PWfcDMw/0.jpg" alt="Guia de Motéis Flutter Challenge"/>
+  </a>
+</p>
+
 ## 🏗️ Project Architecture Overview
 
 This project was developed following the principles of `Clean Architecture` to ensure modularity, separation of concerns, and testability. Below are the key aspects of the architecture and the technologies used:
