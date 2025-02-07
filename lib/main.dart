@@ -17,6 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Hotel's Guide",
       debugShowCheckedModeBanner: false,
+      locale: Locale('pt', 'BR'),
+      supportedLocales: [
+        Locale('pt', 'BR'),
+      ],
       localizationsDelegates: localizationsDelegates,
       theme: theme,
       home: const HotelsPage(),

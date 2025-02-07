@@ -6,6 +6,7 @@ import 'package:hotels_guide/ui/core/widgets/toggle_button.dart';
 import 'package:hotels_guide/ui/hotels/cubit/filter_cubit/suite_filter_cubit.dart';
 import 'package:hotels_guide/ui/hotels/models/suite_filter.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../core/widgets/badge_icon_button.dart';
 import '../../bloc/hotels_bloc.dart';
 import '../../bloc/hotels_state.dart';
@@ -70,7 +71,7 @@ class _BuildFilterView extends StatelessWidget {
                         .appliedFilters
                         .length,
                     icon: MdiIcons.filterVariant,
-                    text: 'filtros',
+                    text: S.current.filters,
                   ),
                   ...SuiteFilter.values.map((item) {
                     return ToggleButton(
