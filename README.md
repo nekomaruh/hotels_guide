@@ -19,6 +19,8 @@ Implement unit tests covering the main components of the application.
 
 ![Coverage](coverage_badge.svg?sanitize=true)
 
+[App Running](example.webm)
+
 ## 🏗️ Project Architecture Overview
 
 This project was developed following the principles of `Clean Architecture` to ensure modularity, separation of concerns, and testability. Below are the key aspects of the architecture and the technologies used:
