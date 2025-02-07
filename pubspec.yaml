@@ -117,3 +117,5 @@ flutter:
         - asset: fonts/TitilliumWeb-BoldItalic.ttf
           weight: 700
           style: 'italic'
+flutter_intl:
+  enabled: true
