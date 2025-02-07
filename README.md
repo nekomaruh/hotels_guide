@@ -65,10 +65,10 @@ To manage dependencies and facilitate testing, `GetIt` was used, a lightweight a
 **Unit tests** were implemented using `flutter_test`, `mockito`, and `bloc_test` to ensure the proper functioning of use cases, repositories, and state management with BLoC. The goal was to achieve at least **70% code coverage** for the motel list functionality.
 
 ### ✅ Code Quality
-Development followed best practices from **Effective Dart** and **SOLID principles**, ensuring clean, modular, and maintainable code.
+Development followed best practices from `Effective Dart` and `SOLID principles`, ensuring clean, modular, and maintainable code.
 
 ### 🚀 GitHub Repository
-The source code of the application was uploaded to a **GitHub** repository, adhering to version control and documentation best practices.
+The source code of the application was uploaded to a `GitHub` repository, adhering to version control and documentation best practices with `GitFlow`.
 
 
 # 📊 Unit Testing Coverage
