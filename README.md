@@ -20,10 +20,26 @@ Implement unit tests covering the main components of the application.
 # 💡 Solution
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=mwY4PWfcDMw">
-    <img src="https://img.youtube.com/vi/mwY4PWfcDMw/0.jpg" alt="Guia de Motéis Flutter Challenge"/>
-  </a>
+  <table>
+    <tr>
+      <th>Running Emulator</th>
+      <th>Running Device [PT]</th>
+    </tr>
+    <tr>
+      <td align="center">
+        <a href="https://www.youtube.com/watch?v=mwY4PWfcDMw">
+          <img src="https://img.youtube.com/vi/mwY4PWfcDMw/0.jpg" alt="Running Emulator"/>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://www.youtube.com/watch?v=Rfa7fCB4o3I">
+          <img src="https://img.youtube.com/vi/Rfa7fCB4o3I/0.jpg" alt="Running Device [PT]"/>
+        </a>
+      </td>
+    </tr>
+  </table>
 </p>
+
 
 ## 🏗️ Project Architecture Overview
 
